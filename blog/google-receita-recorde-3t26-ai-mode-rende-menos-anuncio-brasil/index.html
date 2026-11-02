@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum — Klysman Kley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --paper: #f4f3f0;
+    --ink: #101010;
+    --muted: #6b6b6b;
+    --muted-on-black: #9a9a9a;
+    --line: #00000018;
+    --line-on-black: rgba(255, 255, 255, 0.14);
+    --gold: #b3711f;
+    --gold-on-black: #e0a24d;
+    --font-head: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "JUST Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a { color: var(--gold); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  nav a, .navbar a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .navbar { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.5rem; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .navbar .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .navbar .logo .badge-check { width: 16px; height: 16px; border-radius: 50%; background: #3897f0; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; line-height: 1; flex: none; }
+  .navbar .links { display: flex; gap: 1.6rem; font-size: 0.9rem; font-weight: 600; }
+  .navbar .links a:hover { color: var(--gold); }
+
+  .art-head { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--line); }
+  .back { font-family: var(--font-head); font-size: 0.82rem; font-weight: 700; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1.6rem; }
+  .back:hover { color: var(--gold); }
+  .art-head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4.6vw, 2.7rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 1.1rem; text-wrap: balance; }
+  .art-meta { display: flex; gap: 1rem; align-items: baseline; font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); flex-wrap: wrap; }
+  .art-meta .cat { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 0.78rem; }
+
+  .art-body { padding: 2.6rem 0 4rem; }
+  .art-body p { font-size: 1.08rem; line-height: 1.68; margin: 0 0 1.4rem; text-align: justify; hyphens: auto; }
+  .art-body h2 { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.005em; margin: 2.4rem 0 1.1rem; }
+  .lead { font-size: 1.2rem; font-weight: 500; color: var(--ink); }
+  .pull { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; line-height: 1.35; color: var(--ink); border-left: 3px solid var(--gold); padding-left: 1.3rem; margin: 2.2rem 0; text-wrap: balance; }
+
+  .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .sources h3 { font-family: var(--font-head); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 1rem; }
+  .sources ol { margin: 0; padding-left: 1.2rem; }
+  .sources li { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.5; }
+  .sources a { color: var(--muted); text-decoration: underline; }
+  .sources a:hover { color: var(--gold); }
+
+  footer { background: var(--black); color: var(--white); padding: 3.2rem 0 2.4rem; }
+  .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+  .foot-social { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .foot-social a { color: var(--muted-on-black); transition: color 0.2s; display: inline-flex; text-decoration: none; }
+  .foot-social a:hover { color: var(--white); }
+  .foot-social .handle { font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; color: var(--muted-on-black); margin-left: 0.3rem; }
+  .foot-rights { color: var(--muted-on-black); font-size: 0.82rem; }
+</style>
+<meta name="description" content="A Alphabet faturou US$ 127,6 bilhões no 3º trimestre de 2026, mas a busca desacelerou e o Google reconheceu que o AI Mode monetiza menos. O anúncio nesse formato chega ao Brasil até o fim do ano.">
+<meta name="blog-excerpt" content="Receita recorde de US$ 127,6 bilhões, busca crescendo 12% depois de 19% e 17%, e um chefe de negócios admitindo que a pergunta feita à IA rende menos. Ao mesmo tempo, o Google prepara anúncio no AI Mode pro Brasil ainda em 2026.">
+<link rel="canonical" href="https://kapota.com.br/blog/google-receita-recorde-3t26-ai-mode-rende-menos-anuncio-brasil/">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../assets/icon-192.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum — Klysman Kley">
+<meta property="og:description" content="A Alphabet faturou US$ 127,6 bilhões no 3º trimestre de 2026, mas a busca desacelerou e o Google reconheceu que o AI Mode monetiza menos. O anúncio nesse formato chega ao Brasil até o fim do ano.">
+<meta property="og:url" content="https://kapota.com.br/blog/google-receita-recorde-3t26-ai-mode-rende-menos-anuncio-brasil/">
+<meta property="og:image" content="https://kapota.com.br/assets/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Klysman Kley">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum — Klysman Kley">
+<meta name="twitter:description" content="A Alphabet faturou US$ 127,6 bilhões no 3º trimestre de 2026, mas a busca desacelerou e o Google reconheceu que o AI Mode monetiza menos. O anúncio nesse formato chega ao Brasil até o fim do ano.">
+<meta name="twitter:image" content="https://kapota.com.br/assets/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum","datePublished":"2026-11-02","author":{"@type":"Person","name":"Klysman Kley","alternateName":"Kapota"},"publisher":{"@type":"Person","name":"Klysman Kley"},"mainEntityOfPage":"https://kapota.com.br/blog/google-receita-recorde-3t26-ai-mode-rende-menos-anuncio-brasil/","image":"https://kapota.com.br/assets/og-image.jpg"}</script>
+</head>
+<body>
+<nav class="navbar">
+  <a class="logo" href="../../"><span class="badge-check" aria-hidden="true">&#10003;</span>@kapotalk</a>
+  <div class="links">
+    <a href="../../">Início</a>
+    <a href="../">Blog</a>
+  </div>
+</nav>
+<header class="art-head">
+  <div class="wrap">
+    <a class="back" href="../">&larr; Voltar pro blog</a>
+    <div class="art-meta">
+      <span class="cat">Radar de Notícias</span>
+      <span>2 de novembro de 2026</span>
+    </div>
+    <h1>O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum</h1>
+  </div>
+</header>
+<article class="art-body">
+  <div class="wrap">
+    <p class="lead">Em 28 de outubro de 2026, a Alphabet, dona do Google, divulgou receita de US$ 127,6 bilhões no terceiro trimestre, alta de 25% e a maior da história da empresa. A receita de busca cresceu 12%, pra US$ 63,35 bilhões, depois de crescer 19% no primeiro trimestre e 17% no segundo. Na teleconferência com analistas, Philipp Schindler, chefe de negócios do Google, disse que o forte crescimento das consultas no AI Mode pesou no resultado por causa da monetização menor nesse formato. A ação caiu mais de 8% nas negociações após o fechamento.</p>
+    <h2>Por que a busca desacelerou</h2>
+    <p>O AI Mode é a versão da busca que funciona como conversa: você faz uma pergunta longa, recebe uma resposta montada pela IA e pode continuar perguntando. Sundar Pichai, CEO da Alphabet, disse que as consultas nesse modo são em média três vezes mais longas que uma busca tradicional, e que o crescimento anual do volume de buscas é o maior dos últimos cinco anos. Ou seja, a gente está perguntando mais ao Google. O problema é que cada uma dessas perguntas, hoje, gera menos dinheiro em anúncio do que a busca de sempre.</p>
+    <p>Schindler listou os motivos da desaceleração em relação ao segundo trimestre. O câmbio foi o maior deles. Depois vieram o varejo, com anunciantes da Ásia afetados pelo fim de uma isenção de impostos pra pequenas encomendas na União Europeia, e o setor de mídia, que gastou acima do normal durante a Copa do Mundo e voltou ao padrão. Só então ele citou o AI Mode: nas palavras dele, o forte crescimento dessas consultas teve impacto por causa da monetização menor. A CFO Anat Ashkenazi avisou que a comparação continua difícil no quarto trimestre, porque a busca acelerou na segunda metade de 2025.</p>
+    <h2>Os números que mudam de um veículo pro outro</h2>
+    <p>O resto do balanço explica por que a ação caiu mesmo com receita recorde. A nuvem do Google cresceu 103%, pra US$ 30,7 bilhões, e os anúncios do YouTube subiram cerca de 9%, pra US$ 11,2 bilhões. Mas o lucro por ação ficou em US$ 2,12, contra cerca de US$ 3,00 esperados, puxado por uma perda de US$ 8,7 bilhões em participações em outras empresas. O investimento em infraestrutura foi de US$ 51,4 bilhões só no trimestre, e pela primeira vez o caixa livre ficou negativo em US$ 9,1 bilhões. A previsão de gasto pra 2026 segue entre US$ 195 bilhões e US$ 205 bilhões, e a empresa já avisou que 2027 será maior.</p>
+    <p>Aqui vale um cuidado com a cobertura. O Search Engine Roundtable publicou a receita de busca como US$ 82 bilhões, e o documento oficial enviado à SEC traz US$ 63,35 bilhões. A CNBC citou lucro ajustado de US$ 2,67 por ação, enquanto o número contábil é US$ 2,12. E o dado de 75 milhões de usuários diários no AI Mode, repetido em vários resumos desta semana, foi dito por Pichai no balanço de outubro de 2025. Nesta teleconferência, o Google não divulgou número de usuários do AI Mode nem disse quanto ele rende a menos. O que divulgou foi o plano de anúncios: o formato já tem anúncios em escala em dez países, ganhou anúncios em perguntas de acompanhamento nos Estados Unidos, e Reino Unido, Brasil e México estão na lista pro quarto trimestre.</p>
+    <p class="pull">O Google diz que a pergunta feita à IA vale menos hoje, e mesmo assim vai colocar anúncio nela no Brasil antes do fim do ano.</p>
+    <h2>O que isso muda</h2>
+    <p>Olhando como empresário, eu leio esse balanço como um aviso de pressão. Uma empresa que investe US$ 51 bilhões num trimestre e fica com caixa negativo precisa fazer cada pergunta ao AI Mode render mais, e rápido. Isso significa mais anúncio dentro da resposta da IA, em mais países e em mais formatos. Pra quem compra mídia, o detalhe que mais importa é que campanhas de Search, Shopping e Performance Max entram no AI Mode por padrão, sem opção de ficar de fora e sem relatório separado. Ou seja, parte do seu orçamento já vai pra um formato que o próprio Google admite render menos, e você não consegue medir isso isoladamente. Schindler diz que a taxa de clique em anúncio no AI Mode já é parecida com a do resultado orgânico, mas é dado interno, dos Estados Unidos, de duas semanas.</p>
+    <p>Pra quem trabalha com música e marketing, a mudança é na visibilidade. Se a pergunta é três vezes mais longa e a resposta vem pronta, sobra menos clique pro site do artista, da gravadora ou da marca. O jogo passa a ser aparecer dentro da resposta, com informação organizada e nome fácil de citar, e não só na lista de links. Eu não mudaria o orçamento agora com base num trimestre. O que eu faria é acompanhar a chegada do anúncio no AI Mode ao Brasil e comparar o custo por resultado antes e depois. Quando o Google disser quanto o formato rende, a gente ajusta.</p>
+    <div class="sources">
+      <h3>Fontes</h3>
+      <ol>
+        <li><a href="https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000080/googexhibit991q32026.htm" target="_blank" rel="noopener">Alphabet, comunicado de resultados do 3T26 (SEC, Exhibit 99.1)</a></li>
+        <li><a href="https://seroundtable.com/google-earnings-q326-42403.html" target="_blank" rel="noopener">Search Engine Roundtable</a></li>
+        <li><a href="https://www.searchenginejournal.com/google-search-growth-slows-again-ai-mode/594862/" target="_blank" rel="noopener">Search Engine Journal</a></li>
+        <li><a href="https://www.marketbeat.com/earnings/reports/2026-10-28-alphabet-inc-stock/" target="_blank" rel="noopener">MarketBeat (transcrição da teleconferência)</a></li>
+        <li><a href="https://finance.yahoo.com/markets/stocks/articles/alphabet-q3-earnings-call-highlights-050416594.html" target="_blank" rel="noopener">Yahoo Finance (destaques da teleconferência)</a></li>
+        <li><a href="https://www.xtb.com/en/market-analysis/alphabet-disappoints-wall-street-despite-record-results-shares-plunge-over-8-and-test-300" target="_blank" rel="noopener">XTB</a></li>
+        <li><a href="https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html" target="_blank" rel="noopener">CNBC</a></li>
+        <li><a href="https://9to5google.com/2026/10/28/alphabet-q3-2026-earnings/" target="_blank" rel="noopener">9to5Google</a></li>
+        <li><a href="https://ppc.land/google-executives-hint-at-a-unified-ai-search-interface/" target="_blank" rel="noopener">PPC Land (teleconferência do 3T25, origem do dado de 75 milhões)</a></li>
+      </ol>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-social">
+        <a href="https://instagram.com/kapotalk" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://tiktok.com/@kapotalk" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14.5 3c.4 2.2 1.9 3.7 4.2 3.9v2.7c-1.5.1-2.9-.3-4.2-1.2v6.4c0 3-2.4 5.2-5.3 5.2-3 0-5.3-2.4-5.3-5.3 0-3 2.4-5.3 5.3-5.3.4 0 .8 0 1.2.1v2.8c-.4-.1-.8-.2-1.2-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.6 2.6 1.5 0 2.7-1.1 2.7-2.6V3h2.6z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kapotalk/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="3" y="9" width="3.5" height="12" rx="0.5"/><circle cx="4.75" cy="4.75" r="2.1"/><path d="M10 9h3.4v1.7c.7-1.1 1.9-2 3.7-2 3 0 3.9 1.9 3.9 4.6V21h-3.5v-6.1c0-1.4-.5-2.4-1.8-2.4-1.4 0-2.2 1-2.2 2.4V21H10z"/></svg>
+        </a>
+        <span class="handle">@kapotalk</span>
+      </div>
+      <span class="foot-rights">Todos os direitos reservados</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/newsletter.js" defer></script>
+</body>
+</html>
