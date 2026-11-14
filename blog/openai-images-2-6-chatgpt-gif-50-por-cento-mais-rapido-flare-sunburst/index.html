@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF — Klysman Kley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --paper: #f4f3f0;
+    --ink: #101010;
+    --muted: #6b6b6b;
+    --muted-on-black: #9a9a9a;
+    --line: #00000018;
+    --line-on-black: rgba(255, 255, 255, 0.14);
+    --gold: #b3711f;
+    --gold-on-black: #e0a24d;
+    --font-head: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "JUST Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a { color: var(--gold); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  nav a, .navbar a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .navbar { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.5rem; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .navbar .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .navbar .logo .badge-check { width: 16px; height: 16px; border-radius: 50%; background: #3897f0; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; line-height: 1; flex: none; }
+  .navbar .links { display: flex; gap: 1.6rem; font-size: 0.9rem; font-weight: 600; }
+  .navbar .links a:hover { color: var(--gold); }
+
+  .art-head { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--line); }
+  .back { font-family: var(--font-head); font-size: 0.82rem; font-weight: 700; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1.6rem; }
+  .back:hover { color: var(--gold); }
+  .art-head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4.6vw, 2.7rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 1.1rem; text-wrap: balance; }
+  .art-meta { display: flex; gap: 1rem; align-items: baseline; font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); flex-wrap: wrap; }
+  .art-meta .cat { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 0.78rem; }
+
+  .art-body { padding: 2.6rem 0 4rem; }
+  .art-body p { font-size: 1.08rem; line-height: 1.68; margin: 0 0 1.4rem; text-align: justify; hyphens: auto; }
+  .art-body h2 { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.005em; margin: 2.4rem 0 1.1rem; }
+  .lead { font-size: 1.2rem; font-weight: 500; color: var(--ink); }
+  .pull { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; line-height: 1.35; color: var(--ink); border-left: 3px solid var(--gold); padding-left: 1.3rem; margin: 2.2rem 0; text-wrap: balance; }
+
+  .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .sources h3 { font-family: var(--font-head); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 1rem; }
+  .sources ol { margin: 0; padding-left: 1.2rem; }
+  .sources li { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.5; }
+  .sources a { color: var(--muted); text-decoration: underline; }
+  .sources a:hover { color: var(--gold); }
+
+  footer { background: var(--black); color: var(--white); padding: 3.2rem 0 2.4rem; }
+  .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+  .foot-social { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .foot-social a { color: var(--muted-on-black); transition: color 0.2s; display: inline-flex; text-decoration: none; }
+  .foot-social a:hover { color: var(--white); }
+  .foot-social .handle { font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; color: var(--muted-on-black); margin-left: 0.3rem; }
+  .foot-rights { color: var(--muted-on-black); font-size: 0.82rem; }
+</style>
+<meta name="description" content="O Images 2.6 da OpenAI faz GIF a partir de texto ou foto e promete imagem 50% mais rápida, oito semanas depois de o 2.5 prometer o mesmo ganho. Quem mediu foi a própria empresa.">
+<meta name="blog-excerpt" content="A OpenAI lançou o Images 2.6 em 4 de novembro, com GIF animado no ChatGPT, duas versões na API e geração 50% mais rápida. É a segunda promessa de 50% em dois meses, e a empresa diz que já são 4 bilhões de imagens por semana.">
+<link rel="canonical" href="https://kapota.com.br/blog/openai-images-2-6-chatgpt-gif-50-por-cento-mais-rapido-flare-sunburst/">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../assets/icon-192.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF — Klysman Kley">
+<meta property="og:description" content="O Images 2.6 da OpenAI faz GIF a partir de texto ou foto e promete imagem 50% mais rápida, oito semanas depois de o 2.5 prometer o mesmo ganho. Quem mediu foi a própria empresa.">
+<meta property="og:url" content="https://kapota.com.br/blog/openai-images-2-6-chatgpt-gif-50-por-cento-mais-rapido-flare-sunburst/">
+<meta property="og:image" content="https://kapota.com.br/assets/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Klysman Kley">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF — Klysman Kley">
+<meta name="twitter:description" content="O Images 2.6 da OpenAI faz GIF a partir de texto ou foto e promete imagem 50% mais rápida, oito semanas depois de o 2.5 prometer o mesmo ganho. Quem mediu foi a própria empresa.">
+<meta name="twitter:image" content="https://kapota.com.br/assets/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF","datePublished":"2026-11-14","author":{"@type":"Person","name":"Klysman Kley","alternateName":"Kapota"},"publisher":{"@type":"Person","name":"Klysman Kley"},"mainEntityOfPage":"https://kapota.com.br/blog/openai-images-2-6-chatgpt-gif-50-por-cento-mais-rapido-flare-sunburst/","image":"https://kapota.com.br/assets/og-image.jpg"}</script>
+</head>
+<body>
+<nav class="navbar">
+  <a class="logo" href="../../"><span class="badge-check" aria-hidden="true">&#10003;</span>@kapotalk</a>
+  <div class="links">
+    <a href="../../">Início</a>
+    <a href="../">Blog</a>
+  </div>
+</nav>
+<header class="art-head">
+  <div class="wrap">
+    <a class="back" href="../">&larr; Voltar pro blog</a>
+    <div class="art-meta">
+      <span class="cat">Radar de Notícias</span>
+      <span>14 de novembro de 2026</span>
+    </div>
+    <h1>A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF</h1>
+  </div>
+</header>
+<article class="art-body">
+  <div class="wrap">
+    <p class="lead">A OpenAI lançou em 4 de novembro o Images 2.6, nova versão do modelo de imagem do ChatGPT. A empresa diz que ele gera imagens 50% mais rápido que o anterior e, pela primeira vez, cria GIF animado num passo só, a partir de um texto ou de uma foto. Na API, a porta de entrada pra desenvolvedores, chegam duas versões: o GPT-Image-2.6 Flare, voltado pra velocidade, e o Sunburst, voltado pra qualidade.</p>
+    <h2>Oito semanas depois do 2.5</h2>
+    <p>O lançamento vem oito semanas depois do Images 2.5, apresentado em 8 de setembro com a promessa de até 50% menos latência, que é o tempo de espera até a imagem aparecer, e de manter rosto e produto iguais de uma geração pra outra. A divisão entre Flare e Sunburst também nasceu ali. Agora a OpenAI repete o número de 50%, comparando com a versão anterior, e não publicou como fez a medição. Os veículos que cobriram o anúncio, como o Let's Data Science, avisam que os números de velocidade e de uso são da própria empresa, sem teste independente.</p>
+    <p>A novidade que mais chama atenção é o GIF. Até aqui, o ChatGPT não fazia GIF num passo só. Agora dá pra pedir a animação por texto ou subir uma foto, ajustar a velocidade, mexer quadro a quadro e compartilhar. A OpenAI também fala em imagens de referência, pra manter personagem, produto e elementos de marca iguais entre várias edições. Segundo a empresa, o modelo está liberado no mundo todo, no ChatGPT e no Codex, em todos os planos de assinatura, na web, no computador e no celular. O GIF, porém, chega aos poucos, não tem limite publicado por plano, e o anúncio não deixa claro se o plano gratuito entra.</p>
+    <h2>4 bilhões de imagens por semana</h2>
+    <p>O número que a OpenAI usou pra embalar o lançamento é de volume. Segundo a empresa, as pessoas criam mais de 4 bilhões de imagens por semana no ChatGPT, no Codex e na API, o que dá mais de meio bilhão por dia. Em setembro, o número divulgado era de 3 bilhões. Na API, o Flare gera uma imagem em até seis segundos na qualidade baixa e organiza melhor cartaz e foto de produto, segundo a Digital Trends. O Sunburst entrega mais detalhe e mais consistência entre edições nas qualidades média e alta. Também vieram a marcação de imagem, em que você destaca a área que quer mudar, a exportação em SVG, o formato vetorial usado em logo e ícone, e um ajuste de complexidade que define quanto o modelo planeja antes de desenhar. O anúncio não traz preço e manda o leitor pra página de preços.</p>
+    <p>Esse volume tem uso comercial. Em outubro, a OpenAI começou a testar nos Estados Unidos anúncios exibidos enquanto o ChatGPT gera a imagem de quem usa de graça. Quanto mais gente gerando, mais espaço pra vender. E a concorrência se mexe no mesmo terreno: também em outubro, o Canva lançou a própria IA de imagem, treinada com os templates da plataforma, mirando quem faz peça pra rede social.</p>
+    <p class="pull">Quando a imagem fica mais rápida a cada dois meses, o gargalo da campanha sai da produção e vai pra decisão de qual peça merece ir pro ar.</p>
+    <h2>O que isso muda</h2>
+    <p>No meu trabalho com marketing e música, animação curta sempre dependeu de alguém de motion, com briefing, prazo e custo de hora. Se o ChatGPT entrega uma animação razoável a partir da foto do produto, a primeira versão de um banner animado ou de uma peça de lançamento sai em minutos. Pra lançamento de música, isso ajuda no material de apoio: capa que se mexe, contagem regressiva, figurinha pra divulgar no WhatsApp. O que eu não faria é pular a etapa de aprovação. Ferramenta que gera rápido também gera muita coisa parecida, e a marca que publica tudo o que a IA entrega acaba com a mesma cara de todo mundo.</p>
+    <p>O outro ponto é o número de 50%. É a segunda vez em dois meses que a OpenAI promete esse ganho, e nas duas vezes o número veio dela. Antes de mudar qualquer fluxo, eu vou testar o GIF com peça real de cliente, cronometrar, comparar com o que a equipe já entrega e conferir se o produto continua igual quadro a quadro. Velocidade só conta se a peça sair pronta pra usar. Se sair, entra no processo. Se cada quadro precisar de retoque, continua sendo rascunho.</p>
+    <div class="sources">
+      <h3>Fontes</h3>
+      <ol>
+        <li><a href="https://openai.com/pl-PL/index/introducing-images-2-6/" target="_blank" rel="noopener">OpenAI (anúncio do Images 2.6)</a></li>
+        <li><a href="https://thenextweb.com/news/chatgpt-animated-gifs-images-2-6-openai" target="_blank" rel="noopener">The Next Web</a></li>
+        <li><a href="https://digitaltrends.com/computing/openai-images-2-6-adds-gif-support-and-faster-image-generation" target="_blank" rel="noopener">Digital Trends</a></li>
+        <li><a href="https://letsdatascience.com/news/openai-adds-gif-creation-and-editing-to-chatgpt-with-images-4b17e31a" target="_blank" rel="noopener">Let's Data Science</a></li>
+        <li><a href="https://smartscope.blog/en/blog/chatgpt-gif-creation-images-2-6-supported-plans-2026/" target="_blank" rel="noopener">SmartScope</a></li>
+      </ol>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-social">
+        <a href="https://instagram.com/kapotalk" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://tiktok.com/@kapotalk" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14.5 3c.4 2.2 1.9 3.7 4.2 3.9v2.7c-1.5.1-2.9-.3-4.2-1.2v6.4c0 3-2.4 5.2-5.3 5.2-3 0-5.3-2.4-5.3-5.3 0-3 2.4-5.3 5.3-5.3.4 0 .8 0 1.2.1v2.8c-.4-.1-.8-.2-1.2-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.6 2.6 1.5 0 2.7-1.1 2.7-2.6V3h2.6z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kapotalk/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="3" y="9" width="3.5" height="12" rx="0.5"/><circle cx="4.75" cy="4.75" r="2.1"/><path d="M10 9h3.4v1.7c.7-1.1 1.9-2 3.7-2 3 0 3.9 1.9 3.9 4.6V21h-3.5v-6.1c0-1.4-.5-2.4-1.8-2.4-1.4 0-2.2 1-2.2 2.4V21H10z"/></svg>
+        </a>
+        <span class="handle">@kapotalk</span>
+      </div>
+      <span class="foot-rights">Todos os direitos reservados</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/newsletter.js" defer></script>
+</body>
+</html>
