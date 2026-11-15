@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /painel/
+Disallow: /audiencia/
 
 Sitemap: https://kapota.com.br/sitemap.xml
