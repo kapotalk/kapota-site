@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Kapota DS "Virada" · tokens
+   Fonte única de verdade de cor, tipo, espaço, raio e movimento.
+   Prefixo --kp-. Tema escuro é o padrão; .kp-claro inverte por seção.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("fonts/bricolage-grotesque-var.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Syne";
+  src: url("fonts/syne-var.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/space-grotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/space-grotesk-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("fonts/geist-mono-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face { font-family: "JUST Sans"; src: url("fonts/just-sans-regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "JUST Sans"; src: url("fonts/just-sans-medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "JUST Sans"; src: url("fonts/just-sans-bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "JUST Sans"; src: url("fonts/just-sans-exbold.otf") format("opentype"); font-weight: 800; font-display: swap; }
+
+:root {
+  /* ---- Cor bruta -------------------------------------------------------- */
+  --kp-preto: #0a0a0a;
+  --kp-carvao: #121212;
+  --kp-grafite: #1c1c1c;
+  --kp-chumbo: #2b2b2b;
+  --kp-fumaca: #8f8f8f;      /* texto secundário sobre preto, 6,3:1 */
+  --kp-cinza: #5c5c5c;       /* texto secundário sobre papel, 6,2:1 */
+  --kp-osso: #e3dfd6;
+  --kp-papel: #f3f1ec;
+  --kp-branco: #ffffff;
+
+  --kp-brasa: #ff5a1f;       /* laranja da marca. Fundo de CTA, destaque, título grande */
+  --kp-brasa-300: #ff8a5c;
+  --kp-brasa-100: #ffe3d6;
+  --kp-brasa-700: #c2410c;   /* laranja pra texto pequeno sobre papel, 5,2:1 */
+  --kp-brasa-900: #3a1206;
+  --kp-brasa-brilho: rgba(255, 90, 31, 0.38);
+
+  /* ---- Semântico (escuro é o padrão) ----------------------------------- */
+  --kp-bg: var(--kp-preto);
+  --kp-bg-2: var(--kp-carvao);
+  --kp-bg-3: var(--kp-grafite);
+  --kp-fg: var(--kp-branco);
+  --kp-fg-2: var(--kp-fumaca);
+  --kp-linha: rgba(255, 255, 255, 0.12);
+  --kp-linha-forte: rgba(255, 255, 255, 0.28);
+  --kp-acento: var(--kp-brasa);
+  --kp-acento-texto: var(--kp-brasa);   /* texto laranja de qualquer tamanho */
+  --kp-sobre-acento: var(--kp-preto);   /* preto sobre brasa, 6,4:1 */
+
+  /* ---- Tipo ------------------------------------------------------------ */
+  --kp-fonte-display: "Bricolage Grotesque", "Space Grotesk", system-ui, sans-serif;
+  --kp-fonte-corpo: "JUST Sans", "Helvetica Neue", Arial, sans-serif;
+  --kp-fonte-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --kp-display-peso: 700;
+  --kp-display-largura: 100%;        /* font-stretch, só a Bricolage responde */
+  --kp-display-tracking: -0.035em;
+  --kp-display-altura: 0.92;
+
+  --kp-t-giga: clamp(5rem, 21vw, 24rem);    /* wordmark do rodapé */
+  --kp-t-mega: clamp(3.4rem, 10.5vw, 11.5rem);
+  --kp-t-h1: clamp(2.8rem, 7vw, 7.25rem);
+  --kp-t-h2: clamp(2.2rem, 4.8vw, 4.75rem);
+  --kp-t-h3: clamp(1.5rem, 2.4vw, 2.25rem);
+  --kp-t-h4: clamp(1.15rem, 1.5vw, 1.375rem);
+  --kp-t-lead: clamp(1.15rem, 1.55vw, 1.5rem);
+  --kp-t-corpo: 1.0625rem;
+  --kp-t-peq: 0.875rem;
+  --kp-t-micro: 0.75rem;
+
+  /* ---- Espaço (base 4) -------------------------------------------------- */
+  --kp-e-1: 4px;
+  --kp-e-2: 8px;
+  --kp-e-3: 12px;
+  --kp-e-4: 16px;
+  --kp-e-5: 24px;
+  --kp-e-6: 32px;
+  --kp-e-7: 48px;
+  --kp-e-8: 64px;
+  --kp-e-9: 96px;
+  --kp-e-10: 128px;
+  --kp-secao: clamp(6rem, 15vh, 11rem);
+  --kp-margem: clamp(16px, 4vw, 56px);
+  --kp-largura: 1440px;
+
+  /* ---- Raio ------------------------------------------------------------- */
+  --kp-r-0: 0;
+  --kp-r-1: 6px;
+  --kp-r-2: 14px;
+  --kp-r-3: 28px;
+  --kp-r-pilula: 999px;
+
+  /* ---- Movimento -------------------------------------------------------- */
+  --kp-curva-virada: cubic-bezier(0.7, 0, 0.2, 1);   /* entra e sai firme, a assinatura */
+  --kp-curva-saida: cubic-bezier(0.16, 1, 0.3, 1);   /* revelação, chega macio */
+  --kp-curva-mola: cubic-bezier(0.34, 1.56, 0.64, 1);/* ícones e detalhes pequenos */
+  --kp-d-1: 160ms;
+  --kp-d-2: 320ms;
+  --kp-d-3: 640ms;
+  --kp-d-4: 1100ms;
+  --kp-d-5: 1600ms;
+
+  /* ---- Camadas ---------------------------------------------------------- */
+  --kp-z-nav: 50;
+  --kp-z-menu: 60;
+  --kp-z-cursor: 90;
+  --kp-z-intro: 100;
+}
+
+/* Volta pro escuro dentro de uma seção clara (blocos, cartões) */
+.kp-escuro {
+  --kp-bg: var(--kp-preto);
+  --kp-bg-2: var(--kp-carvao);
+  --kp-bg-3: var(--kp-grafite);
+  --kp-fg: var(--kp-branco);
+  --kp-fg-2: var(--kp-fumaca);
+  --kp-linha: rgba(255, 255, 255, 0.12);
+  --kp-linha-forte: rgba(255, 255, 255, 0.28);
+  --kp-acento: var(--kp-brasa);
+  --kp-acento-texto: var(--kp-brasa);
+  --kp-sobre-acento: var(--kp-preto);
+}
+
+/* Seção clara: papel quente, laranja escurece pra manter contraste */
+.kp-claro {
+  --kp-bg: var(--kp-papel);
+  --kp-bg-2: var(--kp-branco);
+  --kp-bg-3: var(--kp-osso);
+  --kp-fg: var(--kp-preto);
+  --kp-fg-2: var(--kp-cinza);
+  --kp-linha: rgba(10, 10, 10, 0.12);
+  --kp-linha-forte: rgba(10, 10, 10, 0.3);
+  --kp-acento-texto: var(--kp-brasa-700);
+}
+
+/* Seção brasa: laranja cheio, texto preto */
+.kp-brasa {
+  --kp-bg: var(--kp-brasa);
+  --kp-bg-2: var(--kp-brasa-300);
+  --kp-bg-3: var(--kp-brasa-300);
+  --kp-fg: var(--kp-preto);
+  --kp-fg-2: rgba(10, 10, 10, 0.72);
+  --kp-linha: rgba(10, 10, 10, 0.18);
+  --kp-linha-forte: rgba(10, 10, 10, 0.4);
+  --kp-acento: var(--kp-preto);
+  --kp-acento-texto: var(--kp-preto);
+  --kp-sobre-acento: var(--kp-brasa);
+}
+
+/* Troca de fonte display (vitrine). Bricolage é a proposta, as outras são comparação */
+html[data-kp-display="syne"] {
+  --kp-fonte-display: "Syne", system-ui, sans-serif;
+  --kp-display-tracking: -0.04em;
+  --kp-display-peso: 800;
+}
+html[data-kp-display="space"] {
+  --kp-fonte-display: "Space Grotesk", system-ui, sans-serif;
+  --kp-display-tracking: -0.045em;
+}

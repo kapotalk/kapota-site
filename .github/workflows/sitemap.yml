@@ -16,18 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Gerar sitemap.xml, blog/index.html e index.html
+      - name: Passar artigos pro modelo atual e gerar sitemap.xml, posts.js, blog/index.html e index.html
         run: node scripts/generate-site.mjs
 
       - name: Commitar se mudou
         run: |
-          if git diff --quiet sitemap.xml blog/index.html index.html blog/*/index.html assets/newsletter.js; then
+          if git diff --quiet sitemap.xml blog/index.html index.html blog/*/index.html assets/newsletter.js assets/posts.js; then
             echo "Nada mudou."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml blog/index.html index.html blog/*/index.html assets/newsletter.js
+          git add sitemap.xml blog/index.html index.html blog/*/index.html assets/newsletter.js assets/posts.js
           git commit -m "Atualiza sitemap, listagem do blog e destaques da home automaticamente"
           git push
 

@@ -1,1045 +1,1070 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-kp-site>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog — Klysman Kley</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
-<link rel="stylesheet" href="../assets/fonts.css">
-<style>
-  :root {
-    --black: #0a0a0a;
-    --white: #ffffff;
-    --paper: #f4f3f0;
-    --ink: #101010;
-    --muted: #6b6b6b;
-    --muted-on-black: #9a9a9a;
-    --line: #00000018;
-    --line-on-black: rgba(255, 255, 255, 0.14);
-    --gold: #b3711f;
-    --gold-on-black: #e0a24d;
-    --font-head: "Space Grotesk", ui-sans-serif, sans-serif;
-    --font-body: "JUST Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
-    color-scheme: light;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  a { color: inherit; text-decoration: none; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
-  .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-  .eyebrow { font-family: var(--font-head); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; }
-  h1, h2 { font-family: var(--font-head); letter-spacing: -0.01em; }
-
-  /* ---------- Nav ---------- */
-  .navbar { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.5rem; background: var(--paper); border-bottom: 1px solid var(--line); }
-  .navbar .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 0.4rem; }
-  .navbar .logo .badge-check { width: 16px; height: 16px; border-radius: 50%; background: #3897f0; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; line-height: 1; flex: none; }
-  .navbar .links { display: flex; gap: 1.6rem; font-size: 0.9rem; font-weight: 600; }
-  .navbar .links a:hover { color: var(--gold); }
-
-  /* ---------- Header ---------- */
-  .head { padding: 4rem 0 3rem; border-bottom: 1px solid var(--line); }
-  .head h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700; margin: 0 0 1rem; text-wrap: balance; }
-  .head p { font-family: var(--font-body); color: var(--muted); font-size: 1.05rem; max-width: 56ch; margin: 0; }
-
-  /* ---------- Post list ---------- */
-  .posts { padding: 3rem 0 6rem; }
-  .post-card { display: block; padding: 2rem 0; border-bottom: 1px solid var(--line); }
-  .post-card .meta { display: flex; gap: 0.9rem; align-items: baseline; font-family: var(--font-head); font-size: 0.78rem; color: var(--gold); font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 0.7rem; }
-  .post-card .meta .date { color: var(--muted); font-weight: 500; text-transform: none; letter-spacing: 0; }
-  .post-card h2 { font-size: clamp(1.3rem, 2.6vw, 1.7rem); font-weight: 700; margin: 0 0 0.7rem; transition: color 0.2s; }
-  .post-card:hover h2 { color: var(--gold); }
-  .post-card .excerpt { font-family: var(--font-body); color: var(--muted); font-size: 1rem; line-height: 1.55; max-width: 62ch; margin: 0 0 0.8rem; }
-  .post-card .read { font-family: var(--font-head); font-size: 0.85rem; font-weight: 700; color: var(--ink); }
-
-  .empty-note { margin-top: 2rem; color: var(--muted); font-size: 0.92rem; font-family: var(--font-body); }
-
-  footer { background: var(--black); color: var(--white); padding: 3.2rem 0 2.4rem; }
-  .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
-  .foot-social { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
-  .foot-social a { color: var(--muted-on-black); transition: color 0.2s; display: inline-flex; }
-  .foot-social a:hover { color: var(--white); }
-  .foot-social .handle { font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; color: var(--muted-on-black); margin-left: 0.3rem; }
-  .foot-rights { color: var(--muted-on-black); font-size: 0.82rem; }
-</style>
-<meta name="description" content="Artigos sobre negócios, marketing musical e o ecossistema construído por Klysman Kley (Kapota). Ideias e bastidores a partir de casos reais.">
-<link rel="canonical" href="https://kapota.com.br/blog/">
-<link rel="icon" href="../favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="../assets/icon-192.png">
-<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
-<meta name="theme-color" content="#0a0a0a">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog — Klysman Kley">
-<meta property="og:description" content="Artigos sobre negócios, marketing musical e o ecossistema construído por Klysman Kley (Kapota). Ideias e bastidores a partir de casos reais.">
-<meta property="og:url" content="https://kapota.com.br/blog/">
-<meta property="og:image" content="https://kapota.com.br/assets/og-image.jpg">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Klysman Kley">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blog — Klysman Kley">
-<meta name="twitter:description" content="Artigos sobre negócios, marketing musical e o ecossistema construído por Klysman Kley (Kapota). Ideias e bastidores a partir de casos reais.">
-<meta name="twitter:image" content="https://kapota.com.br/assets/og-image.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leitura de Mercado · Klysman Kley</title>
+  <meta name="description" content="Se Atualize, Como Surgiu, Nota Mental e Pensa Nisso. Mercado de música, tecnologia e negócios lido por quem opera dentro dele.">
+  <link rel="preload" href="/assets/virada/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/virada/tokens.css">
+  <link rel="stylesheet" href="/assets/virada/kapota.css">
+  <link rel="stylesheet" href="/assets/virada/site.css">
+  <link rel="stylesheet" href="/assets/virada/blog.css">
+  <link rel="canonical" href="https://kapota.com.br/blog/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leitura de Mercado · Klysman Kley">
+  <meta property="og:description" content="Se Atualize, Como Surgiu, Nota Mental e Pensa Nisso. Mercado de música, tecnologia e negócios lido por quem opera dentro dele.">
+  <meta property="og:url" content="https://kapota.com.br/blog/">
+  <meta property="og:image" content="https://kapota.com.br/assets/og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Klysman Kley">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Leitura de Mercado · Klysman Kley">
+  <meta name="twitter:description" content="Se Atualize, Como Surgiu, Nota Mental e Pensa Nisso. Mercado de música, tecnologia e negócios lido por quem opera dentro dele.">
+  <meta name="twitter:image" content="https://kapota.com.br/assets/og-image.jpg">
 </head>
-<body>
+<body class="kp-grao">
 
-<nav class="navbar">
-  <a class="logo" href="../"><span class="badge-check" aria-hidden="true">&#10003;</span>@kapotalk</a>
-  <div class="links">
-    <a href="../">Início</a>
-    <a href="./">Blog</a>
-  </div>
-</nav>
+<a class="kp-sr" href="#conteudo">Pular para o conteúdo</a>
 
-<header class="head">
-  <div class="wrap">
-    <div class="eyebrow">Blog</div>
-    <h1>Ideias e bastidores por trás dos negócios</h1>
-    <p>Artigos sobre como ele pensa negócio, marketing musical e o ecossistema que construiu. Sempre a partir de casos reais.</p>
+<header class="kp-nav">
+  <div class="kp-container kp-nav__barra">
+    <a class="kp-marca" href="/" aria-label="Klysman Kley, início">
+      <span class="kp-marca__simbolo" aria-hidden="true">K</span>
+      <span>Klysman Kley</span>
+    </a>
+    <nav class="kp-nav__links" aria-label="Principal">
+      <a href="/#quem"><span>Quem é</span><span aria-hidden="true">Quem é</span></a>
+      <a href="/#ecossistema"><span>Ecossistema</span><span aria-hidden="true">Ecossistema</span></a>
+      <a href="/blog/" aria-current="page"><span>Leitura de Mercado</span><span aria-hidden="true">Leitura de Mercado</span></a>
+    </nav>
+    <div class="kp-nav__acoes">
+      <a class="kp-btn kp-btn--peq" href="/#contato" data-kp-magnetico="0.25">
+        <span class="kp-btn__texto"><span>Fale com ele</span><span aria-hidden="true">Fale com ele</span></span>
+        <span class="kp-btn__seta" data-kp-seta></span>
+      </a>
+      <button class="kp-nav__menu" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span><i></i><i></i></span></button>
+    </div>
   </div>
 </header>
 
-<section class="posts">
-  <div class="wrap">
-    <!-- POSTS:START (gerado por scripts/generate-site.mjs — não editar à mão) -->
-    <a class="post-card" href="amazon-music-breakthrough-songwriters-amma-tre-jean-marie-carrie-k/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">15 de novembro de 2026</span></div>
-      <h2>A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar</h2>
-      <p class="excerpt">Depois de seis anos apoiando cantores, a Amazon Music criou um programa pra quem escreve as músicas. Os três primeiros já têm créditos com Olivia Dean, Noah Kahan e Little Mix, e o valor do fundo não foi divulgado.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="agencia-global-porto-alegre-global-studio-ia-generativa-producao/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>Uma agência de Porto Alegre abriu um estúdio só de IA generativa, e vai vender produção até pra marca que não é cliente dela</h2>
-      <p class="excerpt">A Global, de Porto Alegre, lançou em agosto o Global Studio, estúdio de produção com IA generativa que já atendeu Docile, Fruki e Elev. O detalhe mais importante: ele vende produção até pra marca que não é cliente da agência.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="chatgpt-20-por-cento-volume-buscas-google-openai-adam-fry/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>A OpenAI diz que o ChatGPT já tem 20% do volume de buscas do Google, mas não contou de onde tirou o número do Google</h2>
-      <p class="excerpt">A OpenAI afirma que o ChatGPT já soma 20% do volume de consultas do Google, sem dizer de onde tirou o número do Google. Ahrefs e seoClarity calculam bem menos, e o Google ainda manda cerca de 190 vezes mais visitas pros sites.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="elevenlabs-ddex-membro-pleno-padrao-gai-d-musica-ia-2027/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>A ElevenLabs agora ajuda a escrever o padrão que vai identificar música feita por IA, e ele sai no início de 2027</h2>
-      <p class="excerpt">Em 5 de novembro, o DDEX anunciou a ElevenLabs como membro pleno, a primeira empresa de IA nessa condição segundo a entidade. Ela chega na reta final do GAI-D, o padrão que vai dizer como declarar música feita por IA.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="hugel-movin-to-the-sun-suno-206-milhoes-streams-ia-rotulo/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>Um hit com 206 milhões de streams começou como música feita no Suno, e os streamings não mostram aviso de IA</h2>
-      <p class="excerpt">A faixa de Hugel, Ultra Naté e Imael Angel virou hit mundial depois de nascer no Suno. O DJ diz que quase tudo foi feito por humanos, e as plataformas não sabem em qual gaveta colocar a música.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="marcas-contratam-creators-direto-agencias-independentes-producao/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>As marcas aprovam a ideia da agência e passam a execução pro creator, e quem fica sem a receita de produção são as independentes</h2>
-      <p class="excerpt">Reportagem do Ad Age, publicada pelo Meio &amp; Mensagem em 5 de novembro, mostra marcas pegando o conceito da agência e repassando a creators já contratados. As independentes perdem a produção e começam a mudar a forma de vender e cobrar.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-funcionarios-alertas-seguranca-reuters-monorepo-alfozan/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>Funcionários da OpenAI avisaram por anos que a segurança era fraca, e em outubro um engenheiro foi preso acusado de esconder um gravador no papel higiênico</h2>
-      <p class="excerpt">Cinco fontes contaram à Reuters que a OpenAI ignorou por anos alertas internos sobre segurança fraca. A empresa contesta parte do relato, mudou um quarto dos engenheiros de produção de função e promete um novo mutirão de proteção.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-images-2-6-chatgpt-gif-50-por-cento-mais-rapido-flare-sunburst/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF</h2>
-      <p class="excerpt">A OpenAI lançou o Images 2.6 em 4 de novembro, com GIF animado no ChatGPT, duas versões na API e geração 50% mais rápida. É a segunda promessa de 50% em dois meses, e a empresa diz que já são 4 bilhões de imagens por semana.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="penske-billboard-recorre-google-ai-overviews-juiz-mehta-arquivou/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>O juiz reconheceu o prejuízo que o resumo de IA do Google causa aos sites e arquivou o caso mesmo assim, e agora a dona da Billboard recorre</h2>
-      <p class="excerpt">O juiz Amit Mehta arquivou o processo antitruste da Penske Media contra os resumos de IA do Google, mesmo dizendo que não trata o prejuízo dos sites com leveza. Agora a dona da Billboard leva o caso adiante, e a Chegg foi junto.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="riachuelo-joao-gomes-natal-ria-junto-casas-bahia-reserva/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>A Riachuelo escolheu João Gomes pro Natal, e ele já é o rosto da Casas Bahia e da Reserva no mesmo ano</h2>
-      <p class="excerpt">A Riachuelo anunciou João Gomes como rosto do fim de ano, cantando uma música feita pra campanha. É o terceiro varejista a apostar nele em 2026, e isso diz muito sobre o peso do Nordeste no consumo e sobre o risco de dividir o mesmo rosto.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-wrapped-2026-artistas-prazo-13-novembro-635-milhoes/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>O Wrapped teve 635 milhões de compartilhamentos em 2025, e o artista tem só até 13 de novembro pra garantir espaço no deste ano</h2>
-      <p class="excerpt">A Music Ally e o Spotify for Artists publicaram o guia do Wrapped 2026. O artista pode gravar um vídeo de até 30 segundos pros fãs e subir performances, mas o prazo mudou no meio do caminho e aparecer no Wrapped não é garantido.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="whatsapp-atalhos-telefone-endereco-data-mensagens-android-iphone/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de novembro de 2026</span></div>
-      <h2>O WhatsApp começou a transformar telefone, endereço e data das conversas em atalho, e a Meta nem anunciou a novidade</h2>
-      <p class="excerpt">Em 2 de novembro, o WABetaInfo mostrou que o WhatsApp passou a transformar telefone, endereço, data e e-mail das mensagens em atalhos pra ligar, abrir o mapa ou criar evento. A liberação é gradual, e a Meta não fez anúncio oficial.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="amazon-memo-ia-engenheiros-tokens-metrica-falha-tokenmaxxing/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>A Amazon chamou de profundamente falha a régua que usa pra medir IA nos engenheiros, e avisou que vai continuar usando</h2>
-      <p class="excerpt">Em 27 de outubro, a Amazon publicou um memo em que admite que medir IA por tokens e código é falho, cinco meses depois de fechar um ranking interno que engenheiros inflavam de propósito. Os números ficam, mas deixam de ser meta.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="big-techs-us-753-bilhoes-ia-alphabet-perde-500-bilhoes-balanco/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>As cinco big techs vão gastar até US$ 753 bilhões em IA, e a Alphabet perdeu US$ 500 bilhões em valor num único dia ao mostrar a conta</h2>
-      <p class="excerpt">Os planos de investimento em IA das cinco maiores big techs somam até US$ 753 bilhões. A bolsa reagiu mal: a Alphabet teve o pior dia da história e a Amazon caiu, apesar de receitas em alta e de a nuvem crescer forte.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="ecad-alerta-isrc-irregular-agregadoras-2021-regra-mudou-2022/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>O alerta do Ecad contra ISRC gerado por agregadoras circula como novidade, mas é de 2021 e a regra mudou em 2022</h2>
-      <p class="excerpt">O comunicado da gestão coletiva sobre ISRC irregular voltou a circular, mas a cobertura é de 12 de maio de 2021. Em 2022 a regra mudou, e quem lê só o alerta pode agir com informação velha.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="google-receita-recorde-3t26-ai-mode-rende-menos-anuncio-brasil/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum</h2>
-      <p class="excerpt">Receita recorde de US$ 127,6 bilhões, busca crescendo 12% depois de 19% e 17%, e um chefe de negócios admitindo que a pergunta feita à IA rende menos. Ao mesmo tempo, o Google prepara anúncio no AI Mode pro Brasil ainda em 2026.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-quer-comprar-chips-tpu-google-the-information/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>A OpenAI processa o Google na disputa por IA, mas agora quer comprar os chips dele, e ninguém confirmou o negócio</h2>
-      <p class="excerpt">A OpenAI estuda comprar os chips de IA do Google, que hoje aluga, segundo o The Information. Não há preço, quantidade nem confirmação das empresas, e o chip próprio com a Broadcom segue em desenvolvimento.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-remix-ia-2027-adicional-4-5-dolares-universal-sony-warner/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>O Spotify quer cobrar de US$ 4 a US$ 5 por mês pelo remix com IA no início de 2027, mas Sony e Warner ainda não assinaram</h2>
-      <p class="excerpt">O Financial Times diz que o Spotify quer lançar o remix com IA no início de 2027, por US$ 4 a US$ 5 a mais por mês. Três licenciadoras já assinaram, duas majors ainda não, e data e preço não são oficiais.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="suno-mcp-servidor-musica-dentro-claude-chatgpt-gemini/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>A Suno liberou a criação de música dentro do Claude, mesmo com a Anthropic e a própria Suno sendo processadas pelas gravadoras</h2>
-      <p class="excerpt">A Suno lançou em acesso antecipado um servidor MCP que cria música dentro de Claude, ChatGPT, Gemini, Claude Code e Cursor, gastando créditos da conta. O lançamento chega no meio dos processos que envolvem a Suno e a Anthropic.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="youtube-music-premium-150-milhoes-assinantes-alphabet-q3-2026/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">2 de novembro de 2026</span></div>
-      <h2>O YouTube Music e o Premium passaram de 150 milhões de assinantes, e a conta inclui gente que ainda nem começou a pagar</h2>
-      <p class="excerpt">O YouTube Music e o Premium somam mais de 150 milhões de assinantes, 25 milhões a mais que em março de 2025. O número inclui testes grátis, e a TV da sala já seria um terço da receita de anúncios.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="gamesoundcon-2026-editora-jogos-ativo-nao-monetizado-royalties/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de outubro de 2026</span></div>
-      <h2>Quem compõe música de jogo costuma receber uma vez só, e um executivo chamou esse catálogo de Ferrari parada na garagem</h2>
-      <p class="excerpt">Em Burbank, um painel da GameSoundCon defendeu royalties vitalícios pra quem compõe música de jogos. A tese é forte, mas vem de executivos do setor e de uma matéria feita em parceria com a Materia Music, que mediou o debate.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="gravadoras-processam-marcas-musica-redes-sociais-us-150-mil-obra/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de outubro de 2026</span></div>
-      <h2>Gravadoras já processaram a Kroger, a Quince e a dona da Ray-Ban por música em post, e o teto chega a US$ 150 mil por obra</h2>
-      <p class="excerpt">Sony processou a Kroger por 392 usos, a Warner foi atrás da dona da Ray-Ban por 427 obras, e a UMG processou a Quince. O padrão é o mesmo: a música da rede social não vale como licença pra marca.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-features-videos-horizontais-90-minutos-podcasters-youtube/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de outubro de 2026</span></div>
-      <h2>A Meta passou anos dizendo que vídeo longo atrapalhava a rede, e agora testa vídeos de até 90 minutos, inclusive com criadores brasileiros</h2>
-      <p class="excerpt">O formato Features aceita vídeos horizontais de até 90 minutos e está em teste com poucos criadores nos EUA e no Brasil. A Meta não vai repartir receita de anúncios por enquanto, e é aí que o YouTube segue na frente.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-ia-provas-matematica-fisica-eth-yang-mills-revisao/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de outubro de 2026</span></div>
-      <h2>A OpenAI diz que a IA refutou uma hipótese famosa da computação, mas a prova de física nem foi publicada</h2>
-      <p class="excerpt">A OpenAI anunciou três resultados de pesquisa atribuídos aos seus modelos, de matemática à física. A empresa mostrou o material de dois e segurou o terceiro, enquanto especialistas de fora ainda tentam confirmar tudo.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="canva-craft-primeira-ia-propria-imagem-planeja-layout-2k/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>O Canva criou a própria IA de imagem treinada com templates, e a aposta é que ela planeje o layout antes de desenhar</h2>
-      <p class="excerpt">O Craft é o primeiro modelo de imagem treinado pelo Canva. Em vez de partir de fotos, aprendeu com templates da própria biblioteca e divide o trabalho em duas etapas: planeja a composição e só depois renderiza.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="coreweave-credito-8-5-bilhoes-chips-ia-garantia-blackstone/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>A CoreWeave tomou até US$ 8,5 bilhões com chips de IA como garantia, mas quem paga a dívida é o contrato com o cliente</h2>
-      <p class="excerpt">Chips de IA viraram garantia de crédito bilionário. A CoreWeave tem uma linha de até US$ 8,5 bilhões com a Blackstone, mas o dinheiro volta pelo contrato com o cliente, e o prazo de validade do chip é a dúvida.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="elvis-presley-processa-anthropic-274-musicas-41-milhoes-claude/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>Quem cuida da obra de Elvis Presley processou a Anthropic por 274 músicas, e a conta pode passar de US$ 41 milhões</h2>
-      <p class="excerpt">Uma subsidiária da Authentic Brands Group e outros donos de direitos de Elvis entraram com ação contra a Anthropic em 23 de outubro. São 274 músicas, e o valor máximo previsto em lei chega a cerca de US$ 41,1 milhões.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="mercado-ads-engage-plus-ia-topo-funil-131-milhoes-compradores/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>O Mercado Livre lançou uma IA que decide onde seu anúncio aparece, até na Netflix e no Disney+, com dados de 131 milhões de compradores</h2>
-      <p class="excerpt">O Engage+ usa sinais de mais de 131 milhões de compradores do Mercado Livre pra prever interesse e escolher onde o anúncio passa, dentro e fora do marketplace. Já está no Brasil, mas os números de resultado vêm do próprio Mercado Ads.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="redes-sociais-controle-feed-seu-algoritmo-tiktok-youtube-abas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>As redes passaram anos decidindo o que você vê, e agora todas ao mesmo tempo estão te devolvendo o controle do feed</h2>
-      <p class="excerpt">Depois de anos empurrando recomendação automática, as grandes redes agora deixam o usuário ajustar o próprio feed. Pra quem depende de alcance orgânico, a mudança vale uma atenção maior do que parece.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="sonilo-capta-11-milhoes-musica-ia-video-ex-tiktok-shutterstock/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>Ex-executivos do TikTok levantaram US$ 11 milhões pra uma IA que cria a trilha do vídeo sozinha, e ainda não fecharam acordo com as gravadoras</h2>
-      <p class="excerpt">A Sonilo gera trilha e efeito sonoro a partir do vídeo, tem a Shutterstock como parceira de licenciamento e US$ 11 milhões em caixa. O que ainda falta é fechar os contratos com quem é dono das músicas.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-agente-ia-soderstrom-chatgpt-muse-descoberta-musica/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>O Spotify diz que agora é um agente de IA, e que a música e os dados de gosto não saem de dentro dele mesmo quando você pede por outro app</h2>
-      <p class="excerpt">Na teleconferência de resultados, o co-CEO do Spotify disse que a plataforma virou um agente de IA e já funciona dentro do ChatGPT e do Muse da Meta. Segundo ele, quem toca a música e guarda o gosto do ouvinte continua sendo o Spotify.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-plano-familia-qr-code-bloqueio-12-meses-norstrom/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de outubro de 2026</span></div>
-      <h2>O Spotify passou a exigir QR code no plano família e bloqueia por 12 meses quem não provar que mora junto, mas chama isso de melhoria de rotina</h2>
-      <p class="excerpt">O co-CEO Alex Norström confirmou a checagem por QR code no plano família, que já responde por uma fatia grande dos assinantes. Quem não comprovar que mora com o titular em sete dias perde o acesso a planos compartilhados por 12 meses.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="amplified-painel-atencao-brasil-2027-globo-youtube-netflix/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>Globo, Google e Netflix pagaram a mesma empresa pra medir atenção nos anúncios, e agora ela diz que os números não podem ser comparados</h2>
-      <p class="excerpt">Globoplay com quase 75%, Netflix com 67%, YouTube com 61,3%. Os três números vieram da mesma empresa, a Amplified, que agora diz que eles não cabem no mesmo ranking e prepara um painel compartilhado pra 2027.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="anthropic-claude-duet-agente-trabalha-app-fechado-6-mil-conectores/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Anthropic lançou um agente que trabalha com o app fechado, e tem coisa que ele não faz nem com a sua autorização</h2>
-      <p class="excerpt">A Anthropic apresentou o Claude Duet, um agente que acompanha seus apps de trabalho, se liga a mais de 6 mil conectores e continua rodando na nuvem quando você sai. Mover dinheiro entre contas ficou proibido, mesmo com o seu ok.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="black-friday-2026-saturacao-anuncios-yougov-58-por-cento/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>Mais da metade dos brasileiros acha anúncio irritante, mas é a oferta nas redes sociais que mais faz gente comprar</h2>
-      <p class="excerpt">A YouGov ouviu cerca de 12 mil brasileiros: 58,4% se sentem bombardeados por anúncios e 53,3% acham a propaganda irritante. Mesmo assim, 30,3% compraram por oferta vista em rede social. Magalu, Amazon e Samsung já mudaram a rota.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="deezer-85-por-cento-fraude-musica-ia-consulta-copyright-office-eua/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>Até 85% dos plays de música feita por IA na Deezer eram fraude, e foi esse dado que levou um deputado a pedir a consulta dos EUA</h2>
-      <p class="excerpt">A carta do deputado americano falava de IA e usava um dado da Deezer: até 85% dos plays de faixas feitas por IA eram fraude. A consulta aberta em 7 de outubro olha pro método do golpe, e isso muda a conversa pra distribuidora e artista.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="galinha-pintadinha-mundo-bita-licenciamento-beto-carrero-50-milhoes/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Galinha Pintadinha começou num clipe de YouTube e, 20 anos depois, virou filme no cinema e área de R$ 50 milhões no Beto Carrero</h2>
-      <p class="excerpt">A Galinha Pintadinha e o Mundo Bita nasceram de canção no YouTube e hoje vendem lancheira, xampu, calçado, ingresso de show e de cinema. O clipe gratuito virou vitrine de um negócio que cresce longe da tela.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="mauricio-mattar-penhora-royalties-ecad-spotify-r-230-mil/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>Uma briga de trânsito de 1999 virou dívida de R$ 230 mil, e a Justiça foi buscar o dinheiro nos royalties de Maurício Mattar</h2>
-      <p class="excerpt">Pra pagar uma indenização que passa de R$ 230 mil, a Justiça mandou procurar os rendimentos musicais de Maurício Mattar no Ecad, na Abramus, na UBC, no Spotify e em outras plataformas. A penhora foi limitada a 30%.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="moises-soundcloud-parceria-ia-stems-mixagem-publicar/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A brasileira Moises virou o estúdio de IA do SoundCloud, e a promessa é justamente não fazer a música por você</h2>
-      <p class="excerpt">Desde 21 de outubro, artistas do SoundCloud podem levar faixas próprias pro Moises, retrabalhar com IA e publicar de volta. O anúncio fala em 150 milhões de artistas, mas os números das próprias empresas somam cerca de 120 milhões.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-gpt-6-google-cloud-model-garden-astra-sol-luna/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>O Google começou a vender o GPT-6, rival direto do Gemini, dentro da própria nuvem</h2>
-      <p class="excerpt">A OpenAI levou três modelos da família GPT-6 pro catálogo de IA do Google Cloud, em prévia fechada pra empresas. A exclusividade da Microsoft já tinha caído em abril. O Google agora vende o rival do Gemini, e o cliente paga tudo na mesma fatura.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="raye-1-8-milhao-cadastros-robos-ia-5-mil-lugares-metricas-fas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Raye teve 1,8 milhão de cadastros pra um show de 5 mil lugares, e robôs de IA inflaram boa parte da fila</h2>
-      <p class="excerpt">A cantora Raye cancelou a pré-venda de um show de 5 mil lugares depois de receber 1,8 milhão de cadastros, muitos feitos por robôs. A MIDiA usou o caso pra propor outro jeito de medir a relação entre fã e artista.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="reservoir-processa-suno-anthropic-1050-musicas-853-letras-treino-ia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Suno já paga a Warner pra treinar IA, e a Reservoir usou justamente isso pra processar a empresa</h2>
-      <p class="excerpt">A Reservoir entrou com duas ações na Califórnia contra a Suno e a Anthropic. O argumento mais afiado vem dos próprios acordos da Suno: se já existe mercado pra licenciar música pra IA, quem não paga não tem desculpa.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="runway-ads-900-anuncios-semana-ia-criativa-agencias/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Runway saltou de 77 pra 900 anúncios por semana com a própria IA, e agora quer vender essa máquina pra quem anuncia</h2>
-      <p class="excerpt">A Runway diz que foi de 77 pra cerca de 900 anúncios por semana com a própria ferramenta e lançou o Runway Ads. Canva, Figma, ElevenLabs e Typeface fazem o mesmo movimento: sair da geração de imagem e ocupar a campanha inteira.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="sony-patente-fas-artificiais-shows-virtuais-npc-plateia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Sony quer encher show virtual com fã de mentira, e o plano é que ninguém perceba a diferença</h2>
-      <p class="excerpt">A dona do PlayStation pediu patente de um sistema que preenche a plateia de shows virtuais com personagens de computador que imitam fãs reais. O objetivo declarado é que eles não pareçam robôs, e isso mexe com a forma de medir público.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="soundexchange-sonos-3-4-milhoes-suspenso-direito-processar-siriusxm/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A SoundExchange repassa quase US$ 1 bilhão por ano aos artistas, mas a Justiça americana ainda não sabe se ela pode processar quem não paga</h2>
-      <p class="excerpt">A ação da SoundExchange contra a Sonos saiu da lista ativa de um tribunal da Califórnia e só volta depois da decisão no caso SiriusXM, que vale US$ 150 milhões. A pergunta é se quem arrecada royalty tem o direito de cobrar o devedor na Justiça.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-306-milhoes-assinantes-america-latina-24-por-cento/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>O Spotify chegou a 306 milhões de assinantes, e a América Latina está a um ponto de passar a América do Norte</h2>
-      <p class="excerpt">O Spotify fechou o trimestre com 306 milhões de assinantes Premium e receita de 4,97 bilhões de euros. A América Latina chegou a 24% da base paga e pode passar a América do Norte em volume, mas o dinheiro por assinante ainda é bem menor por aqui.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-50-milhoes-faixas-ia-spam-fora-recomendacoes-2026/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>O Spotify tirou mais de 50 milhões de faixas de IA e spam das recomendações só em 2026, e elas continuam no app</h2>
-      <p class="excerpt">Mais de 50 milhões de faixas de IA e spam saíram das recomendações do Spotify em 2026, sem serem apagadas. Música com fortes indícios de IA tem dez vezes mais chance de ficar abaixo das mil reproduções que pagam royalty.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="streaming-990-bilhoes-reproducoes-2026-catalogo-luminate-abramus/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>O streaming passou de 990 bilhões de plays em 2026, e mesmo assim a música nova está tocando menos</h2>
-      <p class="excerpt">Dados da Luminate divulgados pela Abramus somam 990,3 bilhões de streams em 2026, mas as faixas recentes caíram 3,6% e o catálogo subiu 7,1%. O número também não é global, e isso muda a leitura.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="suno-mlc-dados-streaming-2021-processo-gravadoras-udio/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Suno quer obrigar a entidade que paga os compositores nos EUA a entregar cinco anos de dados de streaming pra se defender das gravadoras</h2>
-      <p class="excerpt">Processada pelas gravadoras, a Suno quer usar os dados da MLC, que cobra o direito mecânico nos EUA, pra provar que a IA não tirou mercado de ninguém. A MLC chegou a aceitar entregar terabytes de dados, segundo a Suno, e depois voltou atrás.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="suprema-corte-eua-vetter-double-shot-rescisao-direitos-mundiais/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>Faltou juiz na Suprema Corte dos EUA, e um compositor venceu as gigantes da música pelos direitos mundiais de uma canção dos anos 1960</h2>
-      <p class="excerpt">Quatro juízes se declararam impedidos, a Suprema Corte ficou sem quórum e a decisão que devolveu ao compositor Cyril Vetter os direitos de Double Shot no mundo todo ficou de pé. Vale como vitória, mas não como precedente nacional.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="universal-music-tyger-ia-adapta-musica-games-primeira-major/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Universal virou a primeira major a deixar uma IA mexer nas suas músicas no meio do jogo, num app que até agora só tinha independentes</h2>
-      <p class="excerpt">A Tyger usa IA pra fazer a música acompanhar o que acontece na tela durante o jogo e tinha mais de 400 mil faixas, quase todas de independentes. Agora a Universal entrou, e o valor do acordo não foi divulgado.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="warner-music-une-sync-gravacao-editora-ron-broitman/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Warner juntou gravação e composição numa só equipe de sincronização, e quer que a marca peça a música uma vez só</h2>
-      <p class="excerpt">A Warner Music juntou numa divisão só as equipes que licenciam gravação e composição pra anúncio, filme e série. A promessa é um contato único e liberação mais rápida, num mercado de sync que encolheu 2% no lado das gravadoras em 2025.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="warrior-streaming-media-4800-streamers-esportes-reality-podcasts/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">24 de outubro de 2026</span></div>
-      <h2>A Warrior, que vende anúncio em live de game, vai atrás de esporte e reality mesmo com os games trazendo mais de 70% da receita</h2>
-      <p class="excerpt">A Warrior Streaming Media, que coloca anúncio dentro de transmissões ao vivo, vai atuar também em esportes, reality, podcasts e cultura pop. O CEO diz que foi o mercado que puxou a mudança, mesmo com mais de 70% da audiência e do faturamento ainda vindo dos games.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="ecad-ceara-arrecadacao-2026-r-30-milhoes-alta-15-por-cento/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">23 de outubro de 2026</span></div>
-      <h2>O Ceará deve render até R$ 30 milhões em direitos autorais em 2026, mas quase 180 prefeituras ainda não pagaram o Ecad</h2>
-      <p class="excerpt">O Ecad projeta até R$ 30 milhões no Ceará em 2026, com 85% indo direto aos titulares. O comércio paga mais que os shows, e só 24 de quase 180 prefeituras notificadas regularizaram a dívida.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="musixmatch-music-reports-400-milhoes-royalties-por-ano-neutralidade/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">23 de outubro de 2026</span></div>
-      <h2>A Musixmatch, que começou mostrando letra de música, agora vai cuidar de mais de US$ 400 milhões em royalties por ano</h2>
-      <p class="excerpt">A Musixmatch comprou a Music Reports e passa a controlar uma operação de mais de US$ 400 milhões em royalties por ano, com 500 clientes. A empresa que vende dados pros apps e detecção de cópia pra Suno agora também guarda o registro de quem é dono de cada música.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="catalogo-domina-top-200-spotify-45-por-cento-streams-2026/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">20 de outubro de 2026</span></div>
-      <h2>Música antiga já é quase metade do Top 200 global do Spotify, e lançamento novo virou jogo mais difícil</h2>
-      <p class="excerpt">Catálogo com mais de três anos já responde por 45,1% das streams do Top 200 global do Spotify em 2026, enquanto as faixas novas perderam quase um quarto dos plays. O que isso muda pra quem lança música.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="instagram-edits-assistant-ia-analisa-reels-criadores/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">20 de outubro de 2026</span></div>
-      <h2>O Instagram colocou uma IA pra ler os números dos seus Reels e dizer o que postar em seguida</h2>
-      <p class="excerpt">O Edits Assistant, do Instagram, lê alcance, retenção e engajamento da sua conta e sugere o que postar: ganchos, legendas, roteiros e áudios. Grátis com limite diário, por ora só nos Estados Unidos.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="musixmatch-compra-music-reports-songdex-primeira-aquisicao/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">20 de outubro de 2026</span></div>
-      <h2>A Musixmatch, das letras de música, comprou a dona do Songdex e quer virar plataforma de royalties</h2>
-      <p class="excerpt">A Musixmatch comprou a Music Reports, dona do Songdex, e leva junto a Blokur. É a primeira aquisição em 16 anos e o passo pra sair das letras e virar plataforma completa de direitos e royalties.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-muse-spark-open-modelo-aberto-816b-roda-no-mac/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">17 de outubro de 2026</span></div>
-      <h2>A Meta liberou um modelo de IA de 816 bilhões de parâmetros com pesos abertos, e ele roda em Mac Studio</h2>
-      <p class="excerpt">O Muse Spark Open, da Meta, tem 816 bilhões de parâmetros, 1 milhão de tokens de contexto e pesos abertos. Roda em Mac Studio, mas só em versões comprimidas e com mais de 300 GB de memória.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="warner-music-processa-dona-da-ray-ban-427-musicas-anuncios/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">17 de outubro de 2026</span></div>
-      <h2>A Warner Music processou a dona da Ray-Ban por usar 427 músicas em anúncio sem licença, e a conta pode chegar a US$ 64 milhões</h2>
-      <p class="excerpt">A Warner Music processou empresas do grupo Luxottica, dona de Ray-Ban e Oakley, por 427 obras usadas sem licença em anúncios nas redes. O teto de US$ 64 milhões é cálculo de dano máximo, não valor cobrado.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="youtube-music-selo-musica-ia-fully-gen-ai/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">17 de outubro de 2026</span></div>
-      <h2>O YouTube Music começou a carimbar música feita por IA, e quem decide o carimbo é o próprio selo</h2>
-      <p class="excerpt">O YouTube Music começou a rotular faixas feitas por IA como Fully Gen AI ou Partly Gen AI. A declaração vem do selo ou distribuidora, via DDEX ou planilha, e o que não for declarado vira 'desconhecido'.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-siri-ios-27-sem-dizer-no-spotify/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de outubro de 2026</span></div>
-      <h2>A Siri finalmente toca Spotify sem você dizer 'no Spotify', mas só em inglês e fora da Europa</h2>
-      <p class="excerpt">Quem usa iOS 27 pode pedir música à Siri sem dizer 'no Spotify'. Mas precisa de iPhone 15 Pro ou mais novo, não vale na União Europeia e, por enquanto, só funciona em inglês.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="us-copyright-office-consulta-fraude-streaming/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de outubro de 2026</span></div>
-      <h2>O Escritório de Direitos Autorais dos EUA abriu consulta pública sobre fraude em streaming um dia depois da condenação de Michael Smith</h2>
-      <p class="excerpt">O U.S. Copyright Office abriu consulta pública sobre fraude em streaming, um dia depois da condenação de Michael Smith. Pede dados sobre bots, click farms e playlist stuffing, com comentários até 23 de novembro.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-advertising-week-2026-ads-mcp-checkout/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">12 de outubro de 2026</span></div>
-      <h2>A Meta quer que o agente de IA monte, compre e pague o anúncio sozinho, mas boa parte ainda está em teste</h2>
-      <p class="excerpt">A Meta ampliou o Ads Creative Studio, integrou o Ads MCP Server a parceiros como Snowflake e Triple Whale e anunciou testes de checkout no Meta AI com Stripe, PayPal, Shopify e Adyen. O que está no ar e o que está em teste varia por fonte.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-audiobooks-brasil-15-outubro/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">12 de outubro de 2026</span></div>
-      <h2>O Spotify liga os audiobooks no Brasil em 15 de outubro, com 12 horas por mês incluídas no Premium</h2>
-      <p class="excerpt">O Spotify leva os audiobooks de 22 pra mais de 180 mercados até o fim do ano. No Brasil, a liberação é em 15 de outubro, com 12 horas por mês incluídas no Premium e um catálogo em português de mais de 6 mil títulos.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-technology-vende-ferramentas-internas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">12 de outubro de 2026</span></div>
-      <h2>O Spotify começou a vender pra outras empresas as ferramentas que usa pra construir o próprio app</h2>
-      <p class="excerpt">O technology.spotify.com reúne Backstage, Confidence, Portal e Xirp, ferramentas internas do Spotify agora oferecidas a outras empresas. O site não mostra preço, e o Spotify não divulga quanto essa área fatura.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="google-cloud-gemini-agent-empresas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de outubro de 2026</span></div>
-      <h2>O Google lançou um agente que vira colega de trabalho, com e-mail próprio, e roda até dentro do Microsoft 365 e do Slack</h2>
-      <p class="excerpt">O Google Cloud apresentou o Gemini agent, que responde, executa tarefas e escreve código, e roda no Workspace, no Microsoft 365 e no Slack. Aceita modelos Gemini e Claude e ainda está em prévia privada.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-sierra-personal-agent-protocol/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de outubro de 2026</span></div>
-      <h2>A Meta e a Sierra anunciaram o protocolo pra agente de IA comprar por você, mas a especificação nem foi publicada</h2>
-      <p class="excerpt">Sierra e Meta anunciaram o Personal Agent Protocol, padrão aberto em OAuth pra agentes de IA agirem em sites e serviços de empresas. Ainda não há especificação, licença nem órgão de governança, e pagamento ficou pra depois.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-gpt-6-sol-luna-preco-pela-metade/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de outubro de 2026</span></div>
-      <h2>A OpenAI cortou pela metade o preço do GPT-6 e botou o Luna no plano gratuito</h2>
-      <p class="excerpt">O GPT-6 Sol custa US$ 2 por milhão de tokens de entrada e o Luna, US$ 0,10, metade do preço de referência. No ChatGPT, o Luna chega a quem não paga. As fontes divergem sobre datas e onde cada modelo aparece.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="tiktok-shop-brasil-black-friday-100-milhoes/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de outubro de 2026</span></div>
-      <h2>O TikTok Shop vai gastar R$ 100 milhões em cupons na Black Friday brasileira, e a aposta principal é a live</h2>
-      <p class="excerpt">O TikTok Shop Brasil vai investir R$ 100 milhões em cupons, de 27 de outubro a 12 de dezembro, com até 70% de desconto. Segundo a empresa, uma live com demonstração de produto converte de R$ 50 mil a R$ 100 mil.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="futurecom-2026-ia-agentica-sao-paulo/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">07 de outubro de 2026</span></div>
-      <h2>A Futurecom 2026 espera 30 mil pessoas em São Paulo, e o assunto que domina é IA agêntica</h2>
-      <p class="excerpt">A Futurecom 2026, de 6 a 8 de outubro em São Paulo, espera 30 mil visitantes, 300 marcas e 400 palestrantes. O tema central é IA agêntica: agentes autônomos, segurança e governança.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="italia-investiga-suno-termos-de-uso-abusivos/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">07 de outubro de 2026</span></div>
-      <h2>A Itália abriu investigação contra a Suno por cláusulas que deixam a empresa mudar preço e cancelar conta sem aviso</h2>
-      <p class="excerpt">A AGCM, da Itália, investiga se os termos de uso da Suno são abusivos: mudança unilateral de preço, cancelamento de conta sem aviso, arbitragem nos EUA e renúncia a direitos morais. Cinco dias antes, o CEO dizia que a empresa estava muito além de 2 milhões de assinantes.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="michael-smith-condenado-fraude-streaming-ia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">07 de outubro de 2026</span></div>
-      <h2>O homem que usou 10 mil contas falsas pra ouvir música feita por IA bilhões de vezes pegou 18 meses de prisão</h2>
-      <p class="excerpt">Michael Smith foi condenado a 18 meses de prisão e ao confisco de US$ 8,09 milhões por usar até 10 mil contas falsas pra gerar bilhões de plays de música feita por IA. A promotoria pedia no mínimo 46 meses.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="chatgpt-anuncios-visuais-geracao-de-imagens/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">05 de outubro de 2026</span></div>
-      <h2>A OpenAI vai mostrar anúncio enquanto o ChatGPT gera sua imagem, mas só pra quem não paga</h2>
-      <p class="excerpt">A OpenAI vai testar anúncio visual enquanto o ChatGPT gera imagem, nos EUA, só pros planos Free e Go. Quem assina Plus, Pro, Business ou Enterprise fica de fora.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="instagram-boost-live-artista-tiktok-patient-zero/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">05 de outubro de 2026</span></div>
-      <h2>O Instagram deixou artista impulsionar live em poucos toques, e o TikTok virou o QG do clipe da Taylor Swift</h2>
-      <p class="excerpt">O Instagram liberou o impulsionamento de lives de artista direto no app, e o TikTok transformou o clipe de Patient Zero, da Taylor Swift, numa missão coletiva de fãs. As plataformas estão criando ferramenta nativa pra promover música.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-muse-for-small-business-agente-pmes/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">05 de outubro de 2026</span></div>
-      <h2>A Meta lançou um agente de IA que mexe no Shopify, no Stripe e no QuickBooks da sua loja</h2>
-      <p class="excerpt">O Muse for Small Business, da Meta, conecta Shopify, Stripe, QuickBooks e Canva ao Instagram e à conta de anúncios pra analisar vendas e preparar conteúdo. O dono precisa aprovar tudo antes de publicar ou gastar.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="suno-muito-alem-2-milhoes-assinantes/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">05 de outubro de 2026</span></div>
-      <h2>A Suno já passou muito de 2 milhões de assinantes, diz o CEO, que acha bom a IA musical ainda não ter regra firme</h2>
-      <p class="excerpt">O CEO da Suno diz que a empresa passou muito dos 2 milhões de assinantes e dos US$ 300 milhões de receita de fevereiro, mas não deu número novo. Também acha bom a IA musical ainda não ter regra firme.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="google-gemini-4-argon-lancamento-cyberseguranca/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">02 de outubro de 2026 (atualizado em 17 de outubro)</span></div>
-      <h2>O Gemini 4 Argon saiu do círculo da cibersegurança e já está nas mãos de quem assina o Google</h2>
-      <p class="excerpt">O Gemini 4 Argon estreou em 30 de setembro restrito a defensores cibernéticos e, em 13 de outubro, chegou ao app Gemini para assinantes AI Pro e AI Ultra. API e free seguem com regras próprias.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="instagram-university-novidades-criadores/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">02 de outubro de 2026</span></div>
-      <h2>O Instagram quer que você comemore aniversário de amigo dentro do próprio app</h2>
-      <p class="excerpt">O Instagram anunciou efeito de aniversário no perfil e grupos de amigos próximos em teste, mirando engajamento de público mais jovem e retenção de criador.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="even-studio-plataforma-direct-to-fan-artistas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">01 de outubro de 2026</span></div>
-      <h2>Uma nova plataforma quer tirar o artista independente da mão do Spotify de vez</h2>
-      <p class="excerpt">O EVEN STUDIO dá a cada artista um site próprio pra vender música, ingresso e produto, direto com o fã, sem passar pelo streaming. Venda qualificada já conta pra parada da Billboard.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-contrata-ceo-mongodb-ia-corporativa/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">01 de outubro de 2026</span></div>
-      <h2>A Meta contratou o CEO da MongoDB pra tocar sua nova divisão de IA corporativa, e a ação da MongoDB despencou</h2>
-      <p class="excerpt">A Meta contratou o CEO da MongoDB, Chirantan Desai, pra tocar a nova divisão de IA corporativa. A ação da MongoDB caiu mais de 17% assim que a saída dele foi anunciada.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="nvidia-plataforma-seguranca-agentes-ia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">01 de outubro de 2026</span></div>
-      <h2>A Nvidia lançou uma ferramenta pra impedir que agente de IA fuja do controle</h2>
-      <p class="excerpt">A Nvidia lançou uma plataforma de segurança com dois componentes, OpenShell e Sentry, pra impedir que agente de IA saia dos limites definidos em ambiente corporativo. Mais de 100 empresas já apoiam.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-devday-2026-dots-gpt-6-1-sol/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">01 de outubro de 2026</span></div>
-      <h2>A OpenAI lançou um agente que trabalha sozinho sem esperar comando, e já custa US$ 500 por mês</h2>
-      <p class="excerpt">A OpenAI lançou o Dots, agente sempre ligado que trabalha sozinho rumo a um objetivo, e um novo modelo, o GPT-6.1 Sol. O plano mais caro pra acessar tudo isso já custa US$ 500 por mês.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-instabilidade-saiu-do-ar-29-setembro/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">01 de outubro de 2026</span></div>
-      <h2>O Spotify saiu do ar pra mais de 36 mil usuários numa manhã de terça</h2>
-      <p class="excerpt">O Spotify saiu do ar na manhã de 29/09 por cerca de uma hora, com mais de 36 mil relatos de problema. Login, busca e reprodução pararam de funcionar ao mesmo tempo.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="trump-executivos-ia-pacto-seguranca-voluntario/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">01 de outubro de 2026</span></div>
-      <h2>Zuckerberg, Amodei e Huang assinaram um pacto de segurança de IA que não pune ninguém</h2>
-      <p class="excerpt">Zuckerberg, Amodei, Huang e outros CEOs assinaram com Trump um pacto voluntário de segurança de IA. No dia seguinte, a FTC abriu investigação sobre Anthropic, OpenAI e outros laboratórios.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="app-store-brasil-lojas-alternativas-cade/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>A Apple foi obrigada a abrir a App Store no Brasil pra loja concorrente e pagamento externo</h2>
-      <p class="excerpt">Por acordo com o Cade, a Apple abriu a App Store no Brasil pra loja concorrente e pagamento externo, com comissão que varia de 5% a 21% dependendo do caminho que o desenvolvedor escolher.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="apple-music-hall-londres-elton-john/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>A Apple abriu uma casa de show em Londres, e quem estreia é Elton John</h2>
-      <p class="excerpt">A Apple abriu uma casa de show própria em Londres, dentro da Battersea Power Station, com Elton John estreando o espaço. A ideia é reforçar o Apple Music como marca de show ao vivo, não só streaming.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="chatgpt-ads-1-bilhao-200-dias/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>Em menos de 200 dias, o anúncio do ChatGPT já fatura US$ 1 bilhão por ano</h2>
-      <p class="excerpt">O ChatGPT Ads bateu US$ 1 bilhão de receita anualizada em menos de 200 dias, e a OpenAI já abriu autoatendimento em mais de 40 países. A briga por verba de anúncio com Google e Meta ficou séria rápido.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-creator-marketing-hub-live-ads-instagram/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>A Meta uniu duas ferramentas de anúncio com criador numa só, e trouxe anúncio de live pro Instagram</h2>
-      <p class="excerpt">A Meta uniu duas ferramentas de anúncio com criador numa só, o Creator Marketing Hub, e passou a deixar transformar live de criador em Partnership Ad no Instagram.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-one-assinatura-paga-empresas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>A Meta começou a cobrar até US$ 499 por mês por recursos que eram de graça</h2>
-      <p class="excerpt">O Meta One cobra de US$ 2,99 a US$ 499 por mês por recursos que hoje são de graça, como agendamento de post e insights de concorrência. É a Meta monetizando de forma mais agressiva suas ferramentas de negócio.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="musica-latina-cresce-mais-mercado-eua-13-semestres/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>A música latina cresce mais que o mercado americano inteiro pela 13ª vez seguida</h2>
-      <p class="excerpt">A música latina faturou US$ 542,2 milhões nos EUA no 1º semestre de 2026, crescendo 8,6% e superando o mercado geral pela 13ª vez seguida. Streaming já é 96% dessa receita.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-taste-profile-editar-algoritmo/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">28 de setembro de 2026</span></div>
-      <h2>O Spotify agora deixa você editar o próprio algoritmo de recomendação</h2>
-      <p class="excerpt">O Taste Profile do Spotify mostra como o app entende seu gosto e deixa você pedir ajuste por linguagem natural. Já passou de testado na Nova Zelândia pra beta nos EUA.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="pl-streaming-brasil-condecine-senado/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de setembro de 2026</span></div>
-      <h2>O projeto que taxa Netflix e Spotify no Brasil espera há quase um ano pra ser votado</h2>
-      <p class="excerpt">O PL 2331/2022 cobra Condecine e cota de conteúdo nacional de serviço de streaming como Netflix e Spotify. Aprovado na Câmara em novembro, segue parado no Senado há quase um ano.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-integra-muse-meta-playlist-por-conversa/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de setembro de 2026</span></div>
-      <h2>Agora dá pra montar playlist no Spotify batendo papo com a IA da Meta</h2>
-      <p class="excerpt">O Spotify virou um dos primeiros serviços de música conectados ao Muse, o agente de IA pessoal da Meta. Dá pra tocar música, salvar faixa e montar playlist só de conversa.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-reserved-share-cards-setlist/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">25 de setembro de 2026</span></div>
-      <h2>O Spotify agora monta playlist do setlist do show que você acabou de ver</h2>
-      <p class="excerpt">O Reserved do Spotify ganhou share card personalizado, playlist automática do setlist do show e um espaço próprio dentro do app pra reunir tudo sobre o ingresso e o show.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="youtube-made-on-youtube-2026-ia-anima-fotos/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">23 de setembro de 2026</span></div>
-      <h2>O YouTube lançou uma IA que transforma foto parada em personagem animado</h2>
-      <p class="excerpt">No Made On YouTube 2026, o YouTube mostrou uma IA que transforma foto parada em personagem animado, deixou o selo de conteúdo feito com IA mais visível, e trouxe números novos de Shopping e TV.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-chatgpt-ads-agentes-patrocinados/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">21 de setembro de 2026</span></div>
-      <h2>A OpenAI lançou anúncio dentro do ChatGPT que vira conversa com agente da marca</h2>
-      <p class="excerpt">A OpenAI testa anúncios no ChatGPT que abrem conversa direta com um agente de IA da marca. HubSpot e Shopify já são parceiras, e o movimento entra em rota de colisão com Google e Meta.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="youtube-music-foundry-class-2026-brasileiros/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">21 de setembro de 2026</span></div>
-      <h2>Dois brasileiros entraram na turma mais internacional que o Foundry do YouTube Music já formou</h2>
-      <p class="excerpt">O YouTube Music somou 16 artistas independentes de 8 países ao Foundry Class 2026, a turma mais global do programa até hoje. José Jr e Mariasss representam o Brasil dessa vez.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-anthropic-google-pacto-seguranca-ia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">18 de setembro de 2026</span></div>
-      <h2>OpenAI, Anthropic e Google, rivais diretos, estão negociando um pacto de segurança pra IA</h2>
-      <p class="excerpt">Os três maiores rivais da corrida de IA negociam desde julho um órgão comum de padrões de segurança. A conversa veio a público depois que o CEO da Anthropic pediu desaceleração num ensaio.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-fresh-finds-forward-artistas-independentes/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">18 de setembro de 2026</span></div>
-      <h2>O Spotify vai bancar estúdio de graça pra 10 mil artistas independentes por ano</h2>
-      <p class="excerpt">O Fresh Finds Forward do Spotify vai dar estúdio de graça, ferramenta profissional e acesso a parceria de turnê pra cerca de 10 mil artistas independentes emergentes por ano.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-partner-program-chega-brasil/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">18 de setembro de 2026</span></div>
-      <h2>O programa que paga podcaster no Spotify chegou no Brasil, na maior expansão da história dele</h2>
-      <p class="excerpt">O Spotify levou o Partner Program, que paga podcaster, pra mais de 35 novos países. No Brasil, abre em 19 de outubro, com exigência de 2 mil horas de audiência em 30 dias.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="como-surgiu-apple-music/">
-      <div class="meta"><span>Como Surgiu</span><span class="date">16 de setembro de 2026</span></div>
-      <h2>A Apple criou exatamente o que Steve Jobs jurou que nunca faria</h2>
-      <p class="excerpt">Steve Jobs disse por anos que ninguém ia querer pagar mensalidade pra ouvir música. A própria Apple lançou o Apple Music, exatamente o modelo que ele descartava.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="distrokid-fora-pacto-anti-fraude-processo-universal/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">16 de setembro de 2026</span></div>
-      <h2>A DistroKid ficou de fora do pacto anti-fraude da música e agora enfrenta processo da Universal</h2>
-      <p class="excerpt">Universal, Sony e Warner assinaram um pacto anti-fraude de streaming da IFPI. A DistroKid, que distribui 40% da música nova do mundo, ficou de fora, e na mesma semana foi processada pela Universal.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="anthropic-ipo-maior-oferta-historia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de setembro de 2026</span></div>
-      <h2>A Anthropic pode abrir capital na maior oferta pública da história</h2>
-      <p class="excerpt">Investidores da Anthropic esperam um IPO em outubro avaliado em até US$ 2 trilhões, superando até a SpaceX. Nada está fechado ainda, mas o crescimento de receita por trás da aposta é gigante.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="openai-chatgpt-images-2-5-lancamento/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de setembro de 2026</span></div>
-      <h2>A nova IA de imagem da OpenAI ficou duas vezes mais rápida e mantém o rosto igual</h2>
-      <p class="excerpt">A OpenAI lançou o ChatGPT Images 2.5 com até 50% menos latência e muito mais fidelidade pra manter o rosto e o produto de referência em qualquer cenário gerado. Direto ao ponto pra quem cria peça de marketing com IA.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="rock-in-rio-2026-recorde-publico/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de setembro de 2026</span></div>
-      <h2>Rock in Rio bateu recorde de público e já garantiu a próxima edição pra 2028</h2>
-      <p class="excerpt">Mais de 700 mil pessoas, R$ 3,36 bilhões de impacto econômico e mais de 100 ativações de marca em sete dias. O Rock in Rio 2026 bateu recorde e já confirmou a próxima edição pra 2028.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="universal-music-elevenlabs-acordo-ia/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de setembro de 2026</span></div>
-      <h2>A Universal pulou direto pro acordo com a IA que as outras majors estavam processando</h2>
-      <p class="excerpt">Enquanto Sony e Warner processam a Anthropic, a Universal fechou acordo de anos com a ElevenLabs pra construir uma plataforma de remix por IA com os artistas participando de forma licenciada, sem processo nenhum.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="weverse-vazamento-dados-422-mil-contas/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">14 de setembro de 2026</span></div>
-      <h2>O Weverse vazou dados de 422 mil contas, a segunda vez este ano</h2>
-      <p class="excerpt">A Weverse confirmou vazamento de dados de 422.584 contas por falha numa API de pagamento, a segunda falha de segurança da empresa em 2026. Nomes, contato e número de cartão não foram expostos.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="bmg-concord-fusao-ceo-concord/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">11 de setembro de 2026</span></div>
-      <h2>A Concord sumiu do nome, mas o CEO dela ficou no comando da nova gigante da música</h2>
-      <p class="excerpt">Bob Valentine era CEO da Concord. Depois que a fusão com a BMG saiu do papel em 1º de setembro, ele ficou no comando da empresa combinada, que opera sob o nome BMG e reúne mais de 4 milhões de obras.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="jason-isbell-processa-suno-nao-e-direito-autoral/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">11 de setembro de 2026</span></div>
-      <h2>Jason Isbell processa a Suno, e o motivo não é direito autoral</h2>
-      <p class="excerpt">Jason Isbell, David Lowery e outros artistas entraram com ação coletiva contra a Suno. O processo não fala de música copiada, fala de voz e identidade usadas sem consentimento.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="sony-warner-processam-anthropic-claude/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">11 de setembro de 2026</span></div>
-      <h2>Sony e Warner processam a Anthropic por usar dezenas de milhares de músicas pra treinar a Claude</h2>
-      <p class="excerpt">Sony Music Publishing e Warner Chappell processam a Anthropic e alegam uma campanha de pirataria em massa pra treinar o Claude. A indenização pedida pode passar de bilhões de dólares.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="decidir-com-medo-ou-com-clareza/">
-      <div class="meta"><span>Modelo Mental #4</span><span class="date">10 de setembro de 2026</span></div>
-      <h2>A diferença de 40 bilhões de dólares entre decidir com medo e decidir com clareza</h2>
-      <p class="excerpt">Em 2007 a Netflix apostou no streaming com o DVD ainda lucrativo. Em 2008 o Yahoo recusou uma oferta de 44,6 bilhões de dólares e, oito anos depois, vendeu por menos de um décimo disso. A diferença entre as duas decisões não foi informação, foi clareza.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="marco-legal-ia-brasil-atraso-camara/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de setembro de 2026</span></div>
-      <h2>O Marco Legal da IA no Brasil perdeu a quinta data de votação seguida</h2>
-      <p class="excerpt">O PL 2338/2023, que regula o uso de inteligência artificial no Brasil, segue parado numa comissão especial da Câmara há 16 meses. Em 7 de setembro, o status oficial era o mesmo de sempre: aguardando parecer do relator.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="meta-ai-conecta-google-workspace-anuncios/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de setembro de 2026</span></div>
-      <h2>O Meta AI agora lê seu Gmail, Docs e Planilhas pra otimizar seus anúncios</h2>
-      <p class="excerpt">Desde 19 de agosto, o Meta AI pode acessar Gmail, Google Docs, Planilhas e Slides de quem anuncia no Facebook e Instagram pra gerar relatório e sugerir ajuste de campanha sozinho. Veja o que muda pra quem faz tráfego pago.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="novo-ceo-apple-iphone-dobravel/">
-      <div class="meta"><span>Radar de Notícias</span><span class="date">09 de setembro de 2026</span></div>
-      <h2>O novo CEO da Apple estreou lançando o primeiro iPhone dobrável da história</h2>
-      <p class="excerpt">Tim Cook deixou o comando da Apple em 1º de setembro depois de 15 anos. Oito dias depois, o novo CEO John Ternus subiu ao palco pela primeira vez pra lançar o iPhone 18 Pro e o primeiro iPhone dobrável da história.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="youtube-quase-foi-site-de-paquera/">
-      <div class="meta"><span>Como Surgiu</span><span class="date">09 de setembro de 2026</span></div>
-      <h2>YouTube quase foi um app de paquera</h2>
-      <p class="excerpt">O YouTube nasceu como um site de paquera em vídeo, com o slogan 'Tune In, Hook Up'. Quase ninguém usou do jeito planejado, e foi o ajuste não planejado que virou a plataforma bilionária que a gente conhece hoje.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="time-bom-corrige-sem-drama/">
-      <div class="meta"><span>Modelo Mental #3</span><span class="date">07 de setembro de 2026</span></div>
-      <h2>Time bom não é o que nunca erra, é o que corrige rápido sem drama</h2>
-      <p class="excerpt">Em 2012, o CEO da Apple mandou os próprios clientes usarem o mapa do concorrente. Em 2017, um comando digitado errado na Amazon derrubou boa parte da internet por 4h17. Duas empresas, dois erros públicos, o mesmo motivo pra vencerem depois.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="radar-da-semana-04-09/">
-      <div class="meta"><span>Radar da Semana</span><span class="date">04 de setembro de 2026</span></div>
-      <h2>Radar da Semana: a IA caiu no mesmo dia em que lançou o modelo mais avançado da história</h2>
-      <p class="excerpt">BMG e Concord criam a quarta major da música, Sony e Warner Chappell processam a Anthropic, a OpenAI lança o GPT-6 Astra, e no mesmo dia ChatGPT, Claude e Grok saem do ar juntos por 5 horas.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="incomodo-malfeito-vira-negocio/">
-      <div class="meta"><span>Frase Comentada #5</span><span class="date">03 de setembro de 2026</span></div>
-      <h2>Todo negócio bom nasceu de alguém que se incomodou com algo malfeito</h2>
-      <p class="excerpt">Numa antiga agência, o time presencial rendia pouco mesmo com estrutura boa. Três designers remotos renderam mais que o time inteiro. Foi esse incômodo que virou o método que sustenta a ALKA até hoje.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="spotify-nasceu-pra-matar-pirataria/">
-      <div class="meta"><span>Como Surgiu</span><span class="date">02 de setembro de 2026</span></div>
-      <h2>Spotify: nasceu pra matar a pirataria, e um cofundador do Napster ajudou a bancar</h2>
-      <p class="excerpt">Fundado em 2006 com as gravadoras como sócias, o nome que virou lenda tem origem inventada, e um dos primeiros investidores foi cofundador do Napster. Cinco curiosidades por trás do maior serviço de streaming do mundo.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="forro-categoria-propria-pmb/">
-      <div class="meta"><span>Avulso</span><span class="date">31 de agosto de 2026</span></div>
-      <h2>Forró ganha categoria própria no PMB</h2>
-      <p class="excerpt">Depois de décadas entrando como sertanejo, o forró ganhou categoria própria no Prêmio da Música Brasileira, por campanha de João Gomes em homenagem a Luiz Gonzaga.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="nao-sao-os-mais-fortes-que-sobrevivem/">
-      <div class="meta"><span>Frase Comentada #4</span><span class="date">28 de agosto de 2026</span></div>
-      <h2>Não são os mais fortes que sobrevivem</h2>
-      <p class="excerpt">A Blockbuster riu de uma proposta de comprar a Netflix por 50 milhões de dólares. A Kodak inventou a câmera digital e engavetou por décadas. As duas tinham tudo, menos velocidade.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="ferramentas-mudaram-de-funcao/">
-      <div class="meta"><span>Leitura Estratégica</span><span class="date">27 de agosto de 2026</span></div>
-      <h2>As ferramentas que você usa todo dia mudaram de função</h2>
-      <p class="excerpt">O Instagram passou a pagar por carrossel, o WhatsApp virou vendedor cobrado pela Meta, e Suno e Anthropic foram processadas no mesmo dia. Quem lê a mudança primeiro decide na frente, não atrás.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="voce-nao-precisa-ver-o-topo/">
-      <div class="meta"><span>Frase Comentada #3</span><span class="date">24 de agosto de 2026</span></div>
-      <h2>Você não precisa ver o topo</h2>
-      <p class="excerpt">Pediram a capa de uma banda, ele achou feia e disse que fazia melhor. Não tinha curso nem plano, só resolveu aquele problema ali. Anos depois estava competindo com agência inteira do Nordeste.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="youtube-visualizacao-engajada/">
-      <div class="meta"><span>Avulso</span><span class="date">22 de agosto de 2026</span></div>
-      <h2>O YouTube vai mudar como conta suas visualizações</h2>
-      <p class="excerpt">A partir de 24 de agosto de 2026, toda view no YouTube passa a contar desde o primeiro quadro. O critério antigo ganhou nome novo: Visualização Engajada, e é ela que continua valendo pra monetização.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="tres-as-da-vida/">
-      <div class="meta"><span>Frase Comentada #2</span><span class="date">21 de agosto de 2026</span></div>
-      <h2>Os 3 A's da vida</h2>
-      <p class="excerpt">Acreditar, arriscar e alcançar parecem uma sequência simples, mas cada etapa cobra um preço diferente.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="esperar-oportunidade-trava-empresa/">
-      <div class="meta"><span>Modelo Mental #1</span><span class="date">20 de agosto de 2026</span></div>
-      <h2>Esperar a oportunidade pode travar uma empresa</h2>
-      <p class="excerpt">Spotify, Nubank e ALKA começaram quando alguém decidiu agir sobre um problema, em vez de esperar a oportunidade chegar pronta.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="oportunidades-nao-acontecem-voce-cria/">
-      <div class="meta"><span>Frase Comentada #1</span><span class="date">19 de agosto de 2026</span></div>
-      <h2>As oportunidades não acontecem, você as cria</h2>
-      <p class="excerpt">Spotify e Nubank não esperaram o mercado mudar sozinho. Criaram a mudança. Com a ALKA não foi diferente.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="contrato-vale-mais-que-medo/">
-      <div class="meta"><span>Leitura Estratégica</span><span class="date">17 de agosto de 2026</span></div>
-      <h2>Contrato vale mais que medo</h2>
-      <p class="excerpt">Deezer, Suno e Spotify assinaram contrato, criaram regra e dividiram o dinheiro enquanto todo mundo discutia se a IA ia acabar com a música. O mercado musical vai crescer quase 63% até 2033, e quem não assinar primeiro perde a parte que era sua.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-
-    <a class="post-card" href="viral-nao-e-o-mesmo-que-ser-pago/">
-      <div class="meta"><span>Leitura Estratégica</span><span class="date">03 de agosto de 2026</span></div>
-      <h2>Viral não é o mesmo que ser pago</h2>
-      <p class="excerpt">O Deezer recebe 60 mil músicas por dia feitas por IA, quase 4 em cada 10 uploads. O TIDAL respondeu cortando royalty de faixas 100% sintéticas. Dominar o viral não é o mesmo que virar artista de verdade.</p>
-      <span class="read">Ler artigo &rarr;</span>
-    </a>
-    <!-- POSTS:END -->
-    <p class="empty-note">Mais artigos em breve.</p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-row">
-      <div class="foot-social">
-        <a href="https://instagram.com/kapotalk" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="https://tiktok.com/@kapotalk" target="_blank" rel="noopener" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14.5 3c.4 2.2 1.9 3.7 4.2 3.9v2.7c-1.5.1-2.9-.3-4.2-1.2v6.4c0 3-2.4 5.2-5.3 5.2-3 0-5.3-2.4-5.3-5.3 0-3 2.4-5.3 5.3-5.3.4 0 .8 0 1.2.1v2.8c-.4-.1-.8-.2-1.2-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.6 2.6 1.5 0 2.7-1.1 2.7-2.6V3h2.6z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/kapotalk/" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="3" y="9" width="3.5" height="12" rx="0.5"/><circle cx="4.75" cy="4.75" r="2.1"/><path d="M10 9h3.4v1.7c.7-1.1 1.9-2 3.7-2 3 0 3.9 1.9 3.9 4.6V21h-3.5v-6.1c0-1.4-.5-2.4-1.8-2.4-1.4 0-2.2 1-2.2 2.4V21H10z"/></svg>
-        </a>
-        <span class="handle">@kapotalk</span>
+<div class="kp-menu" id="menu" aria-hidden="true">
+  <nav aria-label="Menu">
+    <a href="/">Início</a>
+    <a href="/#ecossistema">Ecossistema</a>
+    <a href="/blog/">Leitura de Mercado</a>
+    <a href="/#contato">Contato</a>
+  </nav>
+  <div class="kp-menu__rodape kp-mono"><span>@kapotalk</span><span>Campina Grande · PB</span></div>
+</div>
+
+<main id="conteudo">
+  <section class="kp-blog-topo">
+    <div class="kp-blog-topo__brilho"></div>
+    <div class="kp-container kp-blog-topo__grade">
+      <div>
+        <p class="kp-sobrelinha" data-kp-revela>Artigos · música, tecnologia e negócios</p>
+        <h1 class="kp-mega" style="margin-top: 28px" data-kp-linhas>Leitura de<br><span class="kp-acento">mercado.</span></h1>
+        <p class="kp-lead" style="margin-top: 32px" data-kp-revela>Notícia lida por quem opera dentro do mercado. Cada artigo traz o fato, o contexto e o que ele muda pra quem trabalha com música e negócio.</p>
       </div>
-      <span class="foot-rights">Todos os direitos reservados</span>
+      <div class="kp-blog-topo__total" data-kp-revela style="--kp-atraso: 300ms">
+        <span class="kp-numero__valor" data-kp-conta="130"><span data-kp-conta-alvo data-kp-total>130</span></span>
+        <span class="kp-meta">artigos publicados<br>desde <span data-kp-desde>agosto de 2026</span></span>
+      </div>
     </div>
+  </section>
+
+  <div class="kp-filtros">
+    <div class="kp-container kp-filtros__barra">
+      <div class="kp-filtros__series" role="group" aria-label="Filtrar por série" data-kp-series></div>
+      <label class="kp-busca">
+        <span class="kp-sr">Buscar nos artigos</span>
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5.25" stroke="currentColor" stroke-width="1.5"/><path d="m11 11 3.5 3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <input type="search" placeholder="Buscar: Spotify, IA, royalties..." data-kp-busca autocomplete="off">
+        <kbd aria-hidden="true">/</kbd>
+      </label>
+    </div>
+  </div>
+
+  <section class="kp-secao" style="padding-top: 48px">
+    <div class="kp-container">
+      <div class="kp-destaques" data-kp-destaques></div>
+      <div class="kp-lista__info"><span class="kp-meta" data-kp-contagem aria-live="polite"></span><span class="kp-meta">Mais recente primeiro</span></div>
+      <div data-kp-lista>
+<!-- POSTS:START (gerado por scripts/generate-site.mjs, não editar à mão) -->
+      <section class="kp-mes" aria-label="novembro 2026">
+        <div class="kp-mes__titulo"><h2>novembro 2026</h2><span class="kp-meta">20 artigos</span></div>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>15</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/amazon-music-breakthrough-songwriters-amma-tre-jean-marie-carrie-k/">A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/agencia-global-porto-alegre-global-studio-ia-generativa-producao/">Uma agência de Porto Alegre abriu um estúdio só de IA generativa, e vai vender produção até pra marca que não é cliente dela</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/chatgpt-20-por-cento-volume-buscas-google-openai-adam-fry/">A OpenAI diz que o ChatGPT já tem 20% do volume de buscas do Google, mas não contou de onde tirou o número do Google</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/elevenlabs-ddex-membro-pleno-padrao-gai-d-musica-ia-2027/">A ElevenLabs agora ajuda a escrever o padrão que vai identificar música feita por IA, e ele sai no início de 2027</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/hugel-movin-to-the-sun-suno-206-milhoes-streams-ia-rotulo/">Um hit com 206 milhões de streams começou como música feita no Suno, e os streamings não mostram aviso de IA</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/marcas-contratam-creators-direto-agencias-independentes-producao/">As marcas aprovam a ideia da agência e passam a execução pro creator, e quem fica sem a receita de produção são as independentes</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-funcionarios-alertas-seguranca-reuters-monorepo-alfozan/">Funcionários da OpenAI avisaram por anos que a segurança era fraca, e em outubro um engenheiro foi preso acusado de esconder um gravador no papel higiênico</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-images-2-6-chatgpt-gif-50-por-cento-mais-rapido-flare-sunburst/">A OpenAI promete imagem 50% mais rápida no ChatGPT pela segunda vez em dois meses, e agora ele também faz GIF</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/penske-billboard-recorre-google-ai-overviews-juiz-mehta-arquivou/">O juiz reconheceu o prejuízo que o resumo de IA do Google causa aos sites e arquivou o caso mesmo assim, e agora a dona da Billboard recorre</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/riachuelo-joao-gomes-natal-ria-junto-casas-bahia-reserva/">A Riachuelo escolheu João Gomes pro Natal, e ele já é o rosto da Casas Bahia e da Reserva no mesmo ano</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-wrapped-2026-artistas-prazo-13-novembro-635-milhoes/">O Wrapped teve 635 milhões de compartilhamentos em 2025, e o artista tem só até 13 de novembro pra garantir espaço no deste ano</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/whatsapp-atalhos-telefone-endereco-data-mensagens-android-iphone/">O WhatsApp começou a transformar telefone, endereço e data das conversas em atalho, e a Meta nem anunciou a novidade</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/amazon-memo-ia-engenheiros-tokens-metrica-falha-tokenmaxxing/">A Amazon chamou de profundamente falha a régua que usa pra medir IA nos engenheiros, e avisou que vai continuar usando</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/big-techs-us-753-bilhoes-ia-alphabet-perde-500-bilhoes-balanco/">As cinco big techs vão gastar até US$ 753 bilhões em IA, e a Alphabet perdeu US$ 500 bilhões em valor num único dia ao mostrar a conta</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/ecad-alerta-isrc-irregular-agregadoras-2021-regra-mudou-2022/">O alerta do Ecad contra ISRC gerado por agregadoras circula como novidade, mas é de 2021 e a regra mudou em 2022</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/google-receita-recorde-3t26-ai-mode-rende-menos-anuncio-brasil/">O Google nunca faturou tanto, e mesmo assim admitiu que cada pergunta feita ao AI Mode rende menos que uma busca comum</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-quer-comprar-chips-tpu-google-the-information/">A OpenAI processa o Google na disputa por IA, mas agora quer comprar os chips dele, e ninguém confirmou o negócio</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-remix-ia-2027-adicional-4-5-dolares-universal-sony-warner/">O Spotify quer cobrar de US$ 4 a US$ 5 por mês pelo remix com IA no início de 2027, mas Sony e Warner ainda não assinaram</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/suno-mcp-servidor-musica-dentro-claude-chatgpt-gemini/">A Suno liberou a criação de música dentro do Claude, mesmo com a Anthropic e a própria Suno sendo processadas pelas gravadoras</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>nov</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/youtube-music-premium-150-milhoes-assinantes-alphabet-q3-2026/">O YouTube Music e o Premium passaram de 150 milhões de assinantes, e a conta inclui gente que ainda nem começou a pagar</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+      </section>
+      <section class="kp-mes" aria-label="outubro 2026">
+        <div class="kp-mes__titulo"><h2>outubro 2026</h2><span class="kp-meta">65 artigos</span></div>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/gamesoundcon-2026-editora-jogos-ativo-nao-monetizado-royalties/">Quem compõe música de jogo costuma receber uma vez só, e um executivo chamou esse catálogo de Ferrari parada na garagem</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/gravadoras-processam-marcas-musica-redes-sociais-us-150-mil-obra/">Gravadoras já processaram a Kroger, a Quince e a dona da Ray-Ban por música em post, e o teto chega a US$ 150 mil por obra</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-features-videos-horizontais-90-minutos-podcasters-youtube/">A Meta passou anos dizendo que vídeo longo atrapalhava a rede, e agora testa vídeos de até 90 minutos, inclusive com criadores brasileiros</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-ia-provas-matematica-fisica-eth-yang-mills-revisao/">A OpenAI diz que a IA refutou uma hipótese famosa da computação, mas a prova de física nem foi publicada</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/canva-craft-primeira-ia-propria-imagem-planeja-layout-2k/">O Canva criou a própria IA de imagem treinada com templates, e a aposta é que ela planeje o layout antes de desenhar</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/coreweave-credito-8-5-bilhoes-chips-ia-garantia-blackstone/">A CoreWeave tomou até US$ 8,5 bilhões com chips de IA como garantia, mas quem paga a dívida é o contrato com o cliente</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/elvis-presley-processa-anthropic-274-musicas-41-milhoes-claude/">Quem cuida da obra de Elvis Presley processou a Anthropic por 274 músicas, e a conta pode passar de US$ 41 milhões</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/mercado-ads-engage-plus-ia-topo-funil-131-milhoes-compradores/">O Mercado Livre lançou uma IA que decide onde seu anúncio aparece, até na Netflix e no Disney+, com dados de 131 milhões de compradores</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/redes-sociais-controle-feed-seu-algoritmo-tiktok-youtube-abas/">As redes passaram anos decidindo o que você vê, e agora todas ao mesmo tempo estão te devolvendo o controle do feed</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/sonilo-capta-11-milhoes-musica-ia-video-ex-tiktok-shutterstock/">Ex-executivos do TikTok levantaram US$ 11 milhões pra uma IA que cria a trilha do vídeo sozinha, e ainda não fecharam acordo com as gravadoras</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-agente-ia-soderstrom-chatgpt-muse-descoberta-musica/">O Spotify diz que agora é um agente de IA, e que a música e os dados de gosto não saem de dentro dele mesmo quando você pede por outro app</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-plano-familia-qr-code-bloqueio-12-meses-norstrom/">O Spotify passou a exigir QR code no plano família e bloqueia por 12 meses quem não provar que mora junto, mas chama isso de melhoria de rotina</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/amplified-painel-atencao-brasil-2027-globo-youtube-netflix/">Globo, Google e Netflix pagaram a mesma empresa pra medir atenção nos anúncios, e agora ela diz que os números não podem ser comparados</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/anthropic-claude-duet-agente-trabalha-app-fechado-6-mil-conectores/">A Anthropic lançou um agente que trabalha com o app fechado, e tem coisa que ele não faz nem com a sua autorização</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/black-friday-2026-saturacao-anuncios-yougov-58-por-cento/">Mais da metade dos brasileiros acha anúncio irritante, mas é a oferta nas redes sociais que mais faz gente comprar</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/deezer-85-por-cento-fraude-musica-ia-consulta-copyright-office-eua/">Até 85% dos plays de música feita por IA na Deezer eram fraude, e foi esse dado que levou um deputado a pedir a consulta dos EUA</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/galinha-pintadinha-mundo-bita-licenciamento-beto-carrero-50-milhoes/">A Galinha Pintadinha começou num clipe de YouTube e, 20 anos depois, virou filme no cinema e área de R$ 50 milhões no Beto Carrero</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/mauricio-mattar-penhora-royalties-ecad-spotify-r-230-mil/">Uma briga de trânsito de 1999 virou dívida de R$ 230 mil, e a Justiça foi buscar o dinheiro nos royalties de Maurício Mattar</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/moises-soundcloud-parceria-ia-stems-mixagem-publicar/">A brasileira Moises virou o estúdio de IA do SoundCloud, e a promessa é justamente não fazer a música por você</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-gpt-6-google-cloud-model-garden-astra-sol-luna/">O Google começou a vender o GPT-6, rival direto do Gemini, dentro da própria nuvem</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/raye-1-8-milhao-cadastros-robos-ia-5-mil-lugares-metricas-fas/">A Raye teve 1,8 milhão de cadastros pra um show de 5 mil lugares, e robôs de IA inflaram boa parte da fila</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/reservoir-processa-suno-anthropic-1050-musicas-853-letras-treino-ia/">A Suno já paga a Warner pra treinar IA, e a Reservoir usou justamente isso pra processar a empresa</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/runway-ads-900-anuncios-semana-ia-criativa-agencias/">A Runway saltou de 77 pra 900 anúncios por semana com a própria IA, e agora quer vender essa máquina pra quem anuncia</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/sony-patente-fas-artificiais-shows-virtuais-npc-plateia/">A Sony quer encher show virtual com fã de mentira, e o plano é que ninguém perceba a diferença</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/soundexchange-sonos-3-4-milhoes-suspenso-direito-processar-siriusxm/">A SoundExchange repassa quase US$ 1 bilhão por ano aos artistas, mas a Justiça americana ainda não sabe se ela pode processar quem não paga</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-306-milhoes-assinantes-america-latina-24-por-cento/">O Spotify chegou a 306 milhões de assinantes, e a América Latina está a um ponto de passar a América do Norte</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-50-milhoes-faixas-ia-spam-fora-recomendacoes-2026/">O Spotify tirou mais de 50 milhões de faixas de IA e spam das recomendações só em 2026, e elas continuam no app</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/streaming-990-bilhoes-reproducoes-2026-catalogo-luminate-abramus/">O streaming passou de 990 bilhões de plays em 2026, e mesmo assim a música nova está tocando menos</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/suno-mlc-dados-streaming-2021-processo-gravadoras-udio/">A Suno quer obrigar a entidade que paga os compositores nos EUA a entregar cinco anos de dados de streaming pra se defender das gravadoras</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/suprema-corte-eua-vetter-double-shot-rescisao-direitos-mundiais/">Faltou juiz na Suprema Corte dos EUA, e um compositor venceu as gigantes da música pelos direitos mundiais de uma canção dos anos 1960</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/universal-music-tyger-ia-adapta-musica-games-primeira-major/">A Universal virou a primeira major a deixar uma IA mexer nas suas músicas no meio do jogo, num app que até agora só tinha independentes</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/warner-music-une-sync-gravacao-editora-ron-broitman/">A Warner juntou gravação e composição numa só equipe de sincronização, e quer que a marca peça a música uma vez só</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/warrior-streaming-media-4800-streamers-esportes-reality-podcasts/">A Warrior, que vende anúncio em live de game, vai atrás de esporte e reality mesmo com os games trazendo mais de 70% da receita</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>23</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/ecad-ceara-arrecadacao-2026-r-30-milhoes-alta-15-por-cento/">O Ceará deve render até R$ 30 milhões em direitos autorais em 2026, mas quase 180 prefeituras ainda não pagaram o Ecad</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>23</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/musixmatch-music-reports-400-milhoes-royalties-por-ano-neutralidade/">A Musixmatch, que começou mostrando letra de música, agora vai cuidar de mais de US$ 400 milhões em royalties por ano</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>20</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/catalogo-domina-top-200-spotify-45-por-cento-streams-2026/">Música antiga já é quase metade do Top 200 global do Spotify, e lançamento novo virou jogo mais difícil</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>20</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/instagram-edits-assistant-ia-analisa-reels-criadores/">O Instagram colocou uma IA pra ler os números dos seus Reels e dizer o que postar em seguida</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>20</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/musixmatch-compra-music-reports-songdex-primeira-aquisicao/">A Musixmatch, das letras de música, comprou a dona do Songdex e quer virar plataforma de royalties</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>17</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-muse-spark-open-modelo-aberto-816b-roda-no-mac/">A Meta liberou um modelo de IA de 816 bilhões de parâmetros com pesos abertos, e ele roda em Mac Studio</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>17</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/warner-music-processa-dona-da-ray-ban-427-musicas-anuncios/">A Warner Music processou a dona da Ray-Ban por usar 427 músicas em anúncio sem licença, e a conta pode chegar a US$ 64 milhões</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>17</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/youtube-music-selo-musica-ia-fully-gen-ai/">O YouTube Music começou a carimbar música feita por IA, e quem decide o carimbo é o próprio selo</a></h3>
+          <span class="kp-item__tempo">4 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-siri-ios-27-sem-dizer-no-spotify/">A Siri finalmente toca Spotify sem você dizer 'no Spotify', mas só em inglês e fora da Europa</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/us-copyright-office-consulta-fraude-streaming/">O Escritório de Direitos Autorais dos EUA abriu consulta pública sobre fraude em streaming um dia depois da condenação de Michael Smith</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>12</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-advertising-week-2026-ads-mcp-checkout/">A Meta quer que o agente de IA monte, compre e pague o anúncio sozinho, mas boa parte ainda está em teste</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>12</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-audiobooks-brasil-15-outubro/">O Spotify liga os audiobooks no Brasil em 15 de outubro, com 12 horas por mês incluídas no Premium</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>12</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-technology-vende-ferramentas-internas/">O Spotify começou a vender pra outras empresas as ferramentas que usa pra construir o próprio app</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/google-cloud-gemini-agent-empresas/">O Google lançou um agente que vira colega de trabalho, com e-mail próprio, e roda até dentro do Microsoft 365 e do Slack</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-sierra-personal-agent-protocol/">A Meta e a Sierra anunciaram o protocolo pra agente de IA comprar por você, mas a especificação nem foi publicada</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-gpt-6-sol-luna-preco-pela-metade/">A OpenAI cortou pela metade o preço do GPT-6 e botou o Luna no plano gratuito</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/tiktok-shop-brasil-black-friday-100-milhoes/">O TikTok Shop vai gastar R$ 100 milhões em cupons na Black Friday brasileira, e a aposta principal é a live</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>07</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/futurecom-2026-ia-agentica-sao-paulo/">A Futurecom 2026 espera 30 mil pessoas em São Paulo, e o assunto que domina é IA agêntica</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>07</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/italia-investiga-suno-termos-de-uso-abusivos/">A Itália abriu investigação contra a Suno por cláusulas que deixam a empresa mudar preço e cancelar conta sem aviso</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>07</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/michael-smith-condenado-fraude-streaming-ia/">O homem que usou 10 mil contas falsas pra ouvir música feita por IA bilhões de vezes pegou 18 meses de prisão</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>05</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/chatgpt-anuncios-visuais-geracao-de-imagens/">A OpenAI vai mostrar anúncio enquanto o ChatGPT gera sua imagem, mas só pra quem não paga</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>05</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/instagram-boost-live-artista-tiktok-patient-zero/">O Instagram deixou artista impulsionar live em poucos toques, e o TikTok virou o QG do clipe da Taylor Swift</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>05</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-muse-for-small-business-agente-pmes/">A Meta lançou um agente de IA que mexe no Shopify, no Stripe e no QuickBooks da sua loja</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>05</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/suno-muito-alem-2-milhoes-assinantes/">A Suno já passou muito de 2 milhões de assinantes, diz o CEO, que acha bom a IA musical ainda não ter regra firme</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/google-gemini-4-argon-lancamento-cyberseguranca/">O Gemini 4 Argon saiu do círculo da cibersegurança e já está nas mãos de quem assina o Google</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/instagram-university-novidades-criadores/">O Instagram quer que você comemore aniversário de amigo dentro do próprio app</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>01</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/even-studio-plataforma-direct-to-fan-artistas/">Uma nova plataforma quer tirar o artista independente da mão do Spotify de vez</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>01</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-contrata-ceo-mongodb-ia-corporativa/">A Meta contratou o CEO da MongoDB pra tocar sua nova divisão de IA corporativa, e a ação da MongoDB despencou</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>01</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/nvidia-plataforma-seguranca-agentes-ia/">A Nvidia lançou uma ferramenta pra impedir que agente de IA fuja do controle</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>01</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-devday-2026-dots-gpt-6-1-sol/">A OpenAI lançou um agente que trabalha sozinho sem esperar comando, e já custa US$ 500 por mês</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>01</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-instabilidade-saiu-do-ar-29-setembro/">O Spotify saiu do ar pra mais de 36 mil usuários numa manhã de terça</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>01</b>out</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/trump-executivos-ia-pacto-seguranca-voluntario/">Zuckerberg, Amodei e Huang assinaram um pacto de segurança de IA que não pune ninguém</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+      </section>
+      <section class="kp-mes" aria-label="setembro 2026">
+        <div class="kp-mes__titulo"><h2>setembro 2026</h2><span class="kp-meta">35 artigos</span></div>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/app-store-brasil-lojas-alternativas-cade/">A Apple foi obrigada a abrir a App Store no Brasil pra loja concorrente e pagamento externo</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/apple-music-hall-londres-elton-john/">A Apple abriu uma casa de show em Londres, e quem estreia é Elton John</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/chatgpt-ads-1-bilhao-200-dias/">Em menos de 200 dias, o anúncio do ChatGPT já fatura US$ 1 bilhão por ano</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-creator-marketing-hub-live-ads-instagram/">A Meta uniu duas ferramentas de anúncio com criador numa só, e trouxe anúncio de live pro Instagram</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-one-assinatura-paga-empresas/">A Meta começou a cobrar até US$ 499 por mês por recursos que eram de graça</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/musica-latina-cresce-mais-mercado-eua-13-semestres/">A música latina cresce mais que o mercado americano inteiro pela 13ª vez seguida</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-taste-profile-editar-algoritmo/">O Spotify agora deixa você editar o próprio algoritmo de recomendação</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/pl-streaming-brasil-condecine-senado/">O projeto que taxa Netflix e Spotify no Brasil espera há quase um ano pra ser votado</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-integra-muse-meta-playlist-por-conversa/">Agora dá pra montar playlist no Spotify batendo papo com a IA da Meta</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>25</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-reserved-share-cards-setlist/">O Spotify agora monta playlist do setlist do show que você acabou de ver</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>23</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/youtube-made-on-youtube-2026-ia-anima-fotos/">O YouTube lançou uma IA que transforma foto parada em personagem animado</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>21</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-chatgpt-ads-agentes-patrocinados/">A OpenAI lançou anúncio dentro do ChatGPT que vira conversa com agente da marca</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>21</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/youtube-music-foundry-class-2026-brasileiros/">Dois brasileiros entraram na turma mais internacional que o Foundry do YouTube Music já formou</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>18</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-anthropic-google-pacto-seguranca-ia/">OpenAI, Anthropic e Google, rivais diretos, estão negociando um pacto de segurança pra IA</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>18</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-fresh-finds-forward-artistas-independentes/">O Spotify vai bancar estúdio de graça pra 10 mil artistas independentes por ano</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>18</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-partner-program-chega-brasil/">O programa que paga podcaster no Spotify chegou no Brasil, na maior expansão da história dele</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>16</b>set</span>
+          <span class="kp-item__serie">Como Surgiu</span>
+          <h3 class="kp-item__titulo"><a href="/blog/como-surgiu-apple-music/">A Apple criou exatamente o que Steve Jobs jurou que nunca faria</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>16</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/distrokid-fora-pacto-anti-fraude-processo-universal/">A DistroKid ficou de fora do pacto anti-fraude da música e agora enfrenta processo da Universal</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/anthropic-ipo-maior-oferta-historia/">A Anthropic pode abrir capital na maior oferta pública da história</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/openai-chatgpt-images-2-5-lancamento/">A nova IA de imagem da OpenAI ficou duas vezes mais rápida e mantém o rosto igual</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/rock-in-rio-2026-recorde-publico/">Rock in Rio bateu recorde de público e já garantiu a próxima edição pra 2028</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/universal-music-elevenlabs-acordo-ia/">A Universal pulou direto pro acordo com a IA que as outras majors estavam processando</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>14</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/weverse-vazamento-dados-422-mil-contas/">O Weverse vazou dados de 422 mil contas, a segunda vez este ano</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>11</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/bmg-concord-fusao-ceo-concord/">A Concord sumiu do nome, mas o CEO dela ficou no comando da nova gigante da música</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>11</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/jason-isbell-processa-suno-nao-e-direito-autoral/">Jason Isbell processa a Suno, e o motivo não é direito autoral</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>11</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/sony-warner-processam-anthropic-claude/">Sony e Warner processam a Anthropic por usar dezenas de milhares de músicas pra treinar a Claude</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>10</b>set</span>
+          <span class="kp-item__serie">Nota Mental #4</span>
+          <h3 class="kp-item__titulo"><a href="/blog/decidir-com-medo-ou-com-clareza/">A diferença de 40 bilhões de dólares entre decidir com medo e decidir com clareza</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/marco-legal-ia-brasil-atraso-camara/">O Marco Legal da IA no Brasil perdeu a quinta data de votação seguida</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/meta-ai-conecta-google-workspace-anuncios/">O Meta AI agora lê seu Gmail, Docs e Planilhas pra otimizar seus anúncios</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>set</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/novo-ceo-apple-iphone-dobravel/">O novo CEO da Apple estreou lançando o primeiro iPhone dobrável da história</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>09</b>set</span>
+          <span class="kp-item__serie">Como Surgiu</span>
+          <h3 class="kp-item__titulo"><a href="/blog/youtube-quase-foi-site-de-paquera/">YouTube quase foi um app de paquera</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>07</b>set</span>
+          <span class="kp-item__serie">Nota Mental #3</span>
+          <h3 class="kp-item__titulo"><a href="/blog/time-bom-corrige-sem-drama/">Time bom não é o que nunca erra, é o que corrige rápido sem drama</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>04</b>set</span>
+          <span class="kp-item__serie">Resumo da Semana</span>
+          <h3 class="kp-item__titulo"><a href="/blog/radar-da-semana-04-09/">Radar da Semana: a IA caiu no mesmo dia em que lançou o modelo mais avançado da história</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>03</b>set</span>
+          <span class="kp-item__serie">Pensa Nisso #5</span>
+          <h3 class="kp-item__titulo"><a href="/blog/incomodo-malfeito-vira-negocio/">Todo negócio bom nasceu de alguém que se incomodou com algo malfeito</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>02</b>set</span>
+          <span class="kp-item__serie">Como Surgiu</span>
+          <h3 class="kp-item__titulo"><a href="/blog/spotify-nasceu-pra-matar-pirataria/">Spotify: nasceu pra matar a pirataria, e um cofundador do Napster ajudou a bancar</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+      </section>
+      <section class="kp-mes" aria-label="agosto 2026">
+        <div class="kp-mes__titulo"><h2>agosto 2026</h2><span class="kp-meta">10 artigos</span></div>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>31</b>ago</span>
+          <span class="kp-item__serie">Avulso</span>
+          <h3 class="kp-item__titulo"><a href="/blog/forro-categoria-propria-pmb/">Forró ganha categoria própria no PMB</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>28</b>ago</span>
+          <span class="kp-item__serie">Pensa Nisso #4</span>
+          <h3 class="kp-item__titulo"><a href="/blog/nao-sao-os-mais-fortes-que-sobrevivem/">Não são os mais fortes que sobrevivem</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>27</b>ago</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/ferramentas-mudaram-de-funcao/">As ferramentas que você usa todo dia mudaram de função</a></h3>
+          <span class="kp-item__tempo">2 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>24</b>ago</span>
+          <span class="kp-item__serie">Pensa Nisso #3</span>
+          <h3 class="kp-item__titulo"><a href="/blog/voce-nao-precisa-ver-o-topo/">Você não precisa ver o topo</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>22</b>ago</span>
+          <span class="kp-item__serie">Avulso</span>
+          <h3 class="kp-item__titulo"><a href="/blog/youtube-visualizacao-engajada/">O YouTube vai mudar como conta suas visualizações</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>21</b>ago</span>
+          <span class="kp-item__serie">Pensa Nisso #2</span>
+          <h3 class="kp-item__titulo"><a href="/blog/tres-as-da-vida/">Os 3 A's da vida</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>20</b>ago</span>
+          <span class="kp-item__serie">Nota Mental #1</span>
+          <h3 class="kp-item__titulo"><a href="/blog/esperar-oportunidade-trava-empresa/">Esperar a oportunidade pode travar uma empresa</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>19</b>ago</span>
+          <span class="kp-item__serie">Pensa Nisso #1</span>
+          <h3 class="kp-item__titulo"><a href="/blog/oportunidades-nao-acontecem-voce-cria/">As oportunidades não acontecem, você as cria</a></h3>
+          <span class="kp-item__tempo">1 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>17</b>ago</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/contrato-vale-mais-que-medo/">Contrato vale mais que medo</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+        <article class="kp-item">
+          <span class="kp-item__data"><b>03</b>ago</span>
+          <span class="kp-item__serie">Se Atualize</span>
+          <h3 class="kp-item__titulo"><a href="/blog/viral-nao-e-o-mesmo-que-ser-pago/">Viral não é o mesmo que ser pago</a></h3>
+          <span class="kp-item__tempo">3 min</span>
+          <span class="kp-artigo__seta"><svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg></span>
+        </article>
+      </section>
+<!-- POSTS:END -->
+      </div>
+      <div class="kp-vazio" data-kp-vazio>
+        <p class="kp-h3">Nada encontrado com <span class="kp-acento" data-kp-termo></span>.</p>
+        <p class="kp-corpo">Tenta outra palavra ou volta pra todas as séries.</p>
+        <button class="kp-btn kp-btn--fantasma" data-kp-limpa><span class="kp-btn__texto"><span>Limpar busca</span><span aria-hidden="true">Limpar busca</span></span><span class="kp-btn__seta" data-kp-seta></span></button>
+      </div>
+      <div class="kp-mais" data-kp-mais>
+        <div class="kp-mais__barra"><i data-kp-mais-barra></i></div>
+        <button class="kp-btn kp-btn--fantasma" data-kp-carrega data-kp-magnetico="0.2"><span class="kp-btn__texto"><span>Carregar mais</span><span aria-hidden="true">Carregar mais</span></span><span class="kp-btn__seta" data-kp-seta></span></button>
+      </div>
+
+      <div class="kp-news" data-kp-revela>
+        <div>
+          <p class="kp-sobrelinha">Newsletter</p>
+          <h2 class="kp-h3" style="margin-top: 16px">Toda segunda, 8h, o resumo da semana no seu e-mail.</h2>
+        </div>
+        <div>
+          <form class="kp-assina" data-kp-newsletter>
+            <label class="kp-sr" for="news">Seu e-mail</label>
+            <input id="news" type="email" placeholder="seu@email.com" required>
+            <button class="kp-btn" type="submit"><span class="kp-btn__texto"><span>Assinar</span><span aria-hidden="true">Assinar</span></span><span class="kp-btn__seta" data-kp-seta></span></button>
+          </form>
+          <p class="kp-assina__estado kp-mono" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="kp-previa" aria-hidden="true"><span class="kp-meta" data-previa="meta"></span><p data-previa="texto"></p></div>
+
+<footer class="kp-rodape">
+  <div class="kp-container">
+    <div class="kp-rodape__grade">
+      <div><p class="kp-h3" style="max-width: 16ch">Onde alguns veem problemas, ele vê negócios.</p></div>
+      <div><h3 class="kp-meta">Site</h3><ul><li><a href="/#quem">Quem é</a></li><li><a href="/#ecossistema">Ecossistema</a></li><li><a href="/blog/">Leitura de Mercado</a></li></ul></div>
+      <div><h3 class="kp-meta">Séries</h3><ul><li><a href="/blog/?serie=se-atualize">Se Atualize</a></li><li><a href="/blog/?serie=como-surgiu">Como Surgiu</a></li><li><a href="/blog/?serie=nota-mental">Nota Mental</a></li><li><a href="/blog/?serie=pensa-nisso">Pensa Nisso</a></li></ul></div>
+      <div><h3 class="kp-meta">Agora</h3><ul><li class="kp-meta" style="display:flex;gap:8px;align-items:center"><i class="kp-ponto-vivo"></i><span data-kp-relogio></span></li><li><a href="https://instagram.com/kapotalk" target="_blank" rel="noopener">@kapotalk</a></li><li><a href="/#contato">Contato</a></li></ul></div>
+    </div>
+    <div class="kp-rodape__base kp-meta"><span>© 2026 Klysman Kley</span><span>Campina Grande · Paraíba · Brasil</span></div>
   </div>
 </footer>
 
+<script src="/assets/posts.js"></script>
+<script src="/assets/virada/kapota.js"></script>
+<script src="/assets/virada/blog-dados.js"></script>
+<script src="/assets/virada/blog.js"></script>
 <script src="/assets/newsletter.js" defer></script>
 </body>
 </html>
