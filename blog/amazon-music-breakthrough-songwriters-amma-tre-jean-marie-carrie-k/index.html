@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar — Klysman Kley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #ffffff;
+    --paper: #f4f3f0;
+    --ink: #101010;
+    --muted: #6b6b6b;
+    --muted-on-black: #9a9a9a;
+    --line: #00000018;
+    --line-on-black: rgba(255, 255, 255, 0.14);
+    --gold: #b3711f;
+    --gold-on-black: #e0a24d;
+    --font-head: "Space Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "JUST Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  a { color: var(--gold); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  nav a, .navbar a { color: inherit; text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+  .navbar { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 1.5rem; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .navbar .logo { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .navbar .logo .badge-check { width: 16px; height: 16px; border-radius: 50%; background: #3897f0; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; line-height: 1; flex: none; }
+  .navbar .links { display: flex; gap: 1.6rem; font-size: 0.9rem; font-weight: 600; }
+  .navbar .links a:hover { color: var(--gold); }
+
+  .art-head { padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--line); }
+  .back { font-family: var(--font-head); font-size: 0.82rem; font-weight: 700; color: var(--muted); text-decoration: none; display: inline-block; margin-bottom: 1.6rem; }
+  .back:hover { color: var(--gold); }
+  .art-head h1 { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.9rem, 4.6vw, 2.7rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0 0 1.1rem; text-wrap: balance; }
+  .art-meta { display: flex; gap: 1rem; align-items: baseline; font-family: var(--font-head); font-size: 0.85rem; color: var(--muted); flex-wrap: wrap; }
+  .art-meta .cat { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 0.78rem; }
+
+  .art-body { padding: 2.6rem 0 4rem; }
+  .art-body p { font-size: 1.08rem; line-height: 1.68; margin: 0 0 1.4rem; text-align: justify; hyphens: auto; }
+  .art-body h2 { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; letter-spacing: -0.005em; margin: 2.4rem 0 1.1rem; }
+  .lead { font-size: 1.2rem; font-weight: 500; color: var(--ink); }
+  .pull { font-family: var(--font-head); font-weight: 700; font-size: 1.4rem; line-height: 1.35; color: var(--ink); border-left: 3px solid var(--gold); padding-left: 1.3rem; margin: 2.2rem 0; text-wrap: balance; }
+
+  .sources { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .sources h3 { font-family: var(--font-head); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 1rem; }
+  .sources ol { margin: 0; padding-left: 1.2rem; }
+  .sources li { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.5rem; line-height: 1.5; }
+  .sources a { color: var(--muted); text-decoration: underline; }
+  .sources a:hover { color: var(--gold); }
+
+  footer { background: var(--black); color: var(--white); padding: 3.2rem 0 2.4rem; }
+  .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+  .foot-social { display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
+  .foot-social a { color: var(--muted-on-black); transition: color 0.2s; display: inline-flex; text-decoration: none; }
+  .foot-social a:hover { color: var(--white); }
+  .foot-social .handle { font-family: var(--font-head); font-weight: 700; font-size: 0.95rem; color: var(--muted-on-black); margin-left: 0.3rem; }
+  .foot-rights { color: var(--muted-on-black); font-size: 0.82rem; }
+</style>
+<meta name="description" content="A Amazon Music lançou o Breakthrough Songwriters com Amma, Tre Jean-Marie e Carrie K. Tem fundo, workshops e playlist no Reino Unido e nos EUA, mas sem valores.">
+<meta name="blog-excerpt" content="Depois de seis anos apoiando cantores, a Amazon Music criou um programa pra quem escreve as músicas. Os três primeiros já têm créditos com Olivia Dean, Noah Kahan e Little Mix, e o valor do fundo não foi divulgado.">
+<link rel="canonical" href="https://kapota.com.br/blog/amazon-music-breakthrough-songwriters-amma-tre-jean-marie-carrie-k/">
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../assets/icon-192.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar — Klysman Kley">
+<meta property="og:description" content="A Amazon Music lançou o Breakthrough Songwriters com Amma, Tre Jean-Marie e Carrie K. Tem fundo, workshops e playlist no Reino Unido e nos EUA, mas sem valores.">
+<meta property="og:url" content="https://kapota.com.br/blog/amazon-music-breakthrough-songwriters-amma-tre-jean-marie-carrie-k/">
+<meta property="og:image" content="https://kapota.com.br/assets/og-image.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Klysman Kley">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar — Klysman Kley">
+<meta name="twitter:description" content="A Amazon Music lançou o Breakthrough Songwriters com Amma, Tre Jean-Marie e Carrie K. Tem fundo, workshops e playlist no Reino Unido e nos EUA, mas sem valores.">
+<meta name="twitter:image" content="https://kapota.com.br/assets/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar","datePublished":"2026-11-15","author":{"@type":"Person","name":"Klysman Kley","alternateName":"Kapota"},"publisher":{"@type":"Person","name":"Klysman Kley"},"mainEntityOfPage":"https://kapota.com.br/blog/amazon-music-breakthrough-songwriters-amma-tre-jean-marie-carrie-k/","image":"https://kapota.com.br/assets/og-image.jpg"}</script>
+</head>
+<body>
+<nav class="navbar">
+  <a class="logo" href="../../"><span class="badge-check" aria-hidden="true">&#10003;</span>@kapotalk</a>
+  <div class="links">
+    <a href="../../">Início</a>
+    <a href="../">Blog</a>
+  </div>
+</nav>
+<header class="art-head">
+  <div class="wrap">
+    <a class="back" href="../">&larr; Voltar pro blog</a>
+    <div class="art-meta">
+      <span class="cat">Radar de Notícias</span>
+      <span>15 de novembro de 2026</span>
+    </div>
+    <h1>A Amazon Music criou o primeiro programa pra bancar compositor, e não contou quanto vai pagar</h1>
+  </div>
+</header>
+<article class="art-body">
+  <div class="wrap">
+    <p class="lead">A Amazon Music lançou em 12 de novembro o Breakthrough Songwriters, o primeiro programa do serviço feito só para compositores. Os três primeiros escolhidos são os britânicos Amma e Tre Jean-Marie e a americana Carrie K. Segundo a Music Week, eles vão receber dinheiro de um fundo de desenvolvimento, workshops e oportunidades de trabalho, e o programa ganhou uma playlist própria no Reino Unido e nos Estados Unidos. A Amazon não divulgou valores.</p>
+    <h2>Seis anos apoiando cantores antes de olhar pra quem escreve</h2>
+    <p>O Breakthrough existe desde julho de 2020 e sempre apostou em quem sobe no palco. A primeira turma teve Gabby Barrett, Kiana Ledé e Jay1, e depois passaram por lá nomes como Chappell Roan, Sienna Spiro, Odeal e Elmiene. O artista escolhido ganha destaque em playlist, show transmitido ao vivo, presença em festival, campanha de marketing, produtos com a marca dele e gravações exclusivas, as chamadas Amazon Music Originals. A escolhida desta semana foi Skye Newman, contratada da Columbia. Ela lançou o single "Survival" só no Amazon Music em 13 de novembro e foi a primeira cantora solo a esgotar cinco noites na O2 Brixton Academy, em Londres.</p>
+    <p>A novidade foi anunciar os compositores no mesmo dia. Quem comanda o programa novo é Tom Winkler, chefe de relacionamento com editoras e compositores da Amazon Music. Segundo ele, a ideia é dar aos três "recursos, conexões e apoio" pra carreira andar. Além da playlist geral do programa, cada um ganhou uma playlist só com as músicas que escreveu, com nomes como "Written By Amma".</p>
+    <h2>Quem são os três primeiros, e o que ficou sem resposta</h2>
+    <p>Amma é o nome artístico de Lauren Keen, irmã da cantora Raye, e tem músicas com FLO, JoJo e Nao. Ela está em turnê justamente com Skye Newman. Tre Jean-Marie é compositor e produtor, já trabalhou com Craig David, Little Mix e Olivia Dean, e escreveu e produziu "Lighter", de Nathan Dawe com KSI, indicada ao Brit Awards. Carrie K tem trabalhos com Noah Kahan, Halsey e Sienna Spiro, que também já foi artista do Breakthrough.</p>
+    <p>Ninguém ali é iniciante. A Amazon escolheu gente que já tem música de sucesso no currículo, o que mostra que o objetivo é se aproximar de quem escreve os hits, e não descobrir talento do zero. O que ficou de fora também chama atenção: nenhuma das reportagens diz quanto vale o fundo, por quanto tempo ele dura ou se a Amazon fica com alguma parte das obras. As fontes também não falam em contrato de edição.</p>
+    <p class="pull">A Amazon percebeu que o nome de quem escreve também atrai ouvinte, e entrou num espaço que sempre foi das editoras.</p>
+    <h2>O que isso muda</h2>
+    <p>Pra mim, o detalhe mais importante é a playlist com o nome do compositor. Por décadas, quem escrevia a música ficava escondido na ficha técnica, e quem investia nele era a editora, a empresa que registra, administra e cobra os direitos da obra. Quando um streaming passa a dar verba, workshop e vitrine pro compositor, ele assume parte desse papel. A Amazon não registra obra nem cobra direito autoral, então a editora continua sendo necessária. Mas a plataforma passa a ter uma relação direta com quem escreve, e quem tem essa relação negocia em vantagem depois.</p>
+    <p>Pra quem trabalha com editora e administração de direitos, como a gente faz na Music Copyright, o recado é tratar a vitrine do compositor com o mesmo cuidado que se dá à do artista. Crédito certo nos metadados, obra registrada e divisão de direitos fechada são o que faz o nome aparecer na playlist certa e o dinheiro chegar a quem escreveu. Por enquanto são três nomes, todos do Reino Unido e dos Estados Unidos. Vale acompanhar se o programa chega ao Brasil e se a Amazon vai abrir os números.</p>
+    <div class="sources">
+      <h3>Fontes</h3>
+      <ol>
+        <li><a href="https://musically.com/2026/11/13/amazon-music-expands-talent-investment-to-breakthrough-songwriters/" target="_blank" rel="noopener">Music Ally</a></li>
+        <li><a href="https://www.musicweek.com/talent/read/amazon-music-names-skye-newman-as-breakthrough-artist-and-launches-breakthrough-songwriter-programme/095466" target="_blank" rel="noopener">Music Week</a></li>
+        <li><a href="https://www.totalntertainment.com/features/amazon-music-announces-expansion-of-breakthrough-programme/" target="_blank" rel="noopener">TotalNtertainment</a></li>
+        <li><a href="https://press.aboutamazon.com/2020/7/amazon-music-announces-breakthrough-a-new-global-developing-artist-program" target="_blank" rel="noopener">Amazon (comunicado de 2020)</a></li>
+        <li><a href="https://musicbusinessworldwide.com/amazon-music-launches-breakthrough-a-new-global-artist-development-program" target="_blank" rel="noopener">Music Business Worldwide</a></li>
+      </ol>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-social">
+        <a href="https://instagram.com/kapotalk" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://tiktok.com/@kapotalk" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M14.5 3c.4 2.2 1.9 3.7 4.2 3.9v2.7c-1.5.1-2.9-.3-4.2-1.2v6.4c0 3-2.4 5.2-5.3 5.2-3 0-5.3-2.4-5.3-5.3 0-3 2.4-5.3 5.3-5.3.4 0 .8 0 1.2.1v2.8c-.4-.1-.8-.2-1.2-.2-1.5 0-2.6 1.2-2.6 2.6 0 1.5 1.2 2.6 2.6 2.6 1.5 0 2.7-1.1 2.7-2.6V3h2.6z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kapotalk/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><rect x="3" y="9" width="3.5" height="12" rx="0.5"/><circle cx="4.75" cy="4.75" r="2.1"/><path d="M10 9h3.4v1.7c.7-1.1 1.9-2 3.7-2 3 0 3.9 1.9 3.9 4.6V21h-3.5v-6.1c0-1.4-.5-2.4-1.8-2.4-1.4 0-2.2 1-2.2 2.4V21H10z"/></svg>
+        </a>
+        <span class="handle">@kapotalk</span>
+      </div>
+      <span class="foot-rights">Todos os direitos reservados</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/newsletter.js" defer></script>
+</body>
+</html>
