@@ -227,3 +227,34 @@
 @media (max-width: 700px) { .kp-vizinhos { grid-template-columns: 1fr; } }
 .kp-relacionados { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 @media (max-width: 900px) { .kp-relacionados { grid-template-columns: 1fr; } }
+
+/* ---------- Página não encontrada (404) ----------
+   O último 4 capota: entra de pé e vira de cabeça pra baixo, o gesto da marca. */
+.kp-erro { position: relative; overflow: hidden; padding-top: clamp(130px, 20vh, 200px); padding-bottom: clamp(24px, 4vw, 48px); }
+.kp-erro__grade { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.kp-erro__titulo { font-size: clamp(2.5rem, 6.2vw, 6.25rem); margin-top: 24px; }
+.kp-erro__caminho { margin-top: 24px; font-family: var(--kp-fonte-mono); font-size: var(--kp-t-micro); letter-spacing: 0.06em; color: var(--kp-fg-2); overflow-wrap: anywhere; }
+.kp-erro__caminho b { color: var(--kp-fg); font-weight: 400; }
+.kp-erro__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+.kp-erro__numero {
+  display: flex; justify-content: flex-end; user-select: none;
+  font-family: var(--kp-fonte-display); font-weight: 800; line-height: 0.8; letter-spacing: -0.06em;
+  font-size: clamp(7rem, 21vw, 19rem); color: transparent; -webkit-text-stroke: 1.5px var(--kp-linha-forte);
+}
+.kp-erro__numero span { display: inline-block; }
+.kp-erro__capotado { margin-left: 0.1em; transform-origin: 50% 56%; color: var(--kp-brasa); -webkit-text-stroke: 0; transform: rotate(180deg); animation: kp-capota 1200ms var(--kp-curva-virada) 600ms both; }
+@keyframes kp-capota {
+  0% { transform: none; }
+  55% { transform: translateY(-12%) rotate(200deg); }
+  100% { transform: rotate(180deg); }
+}
+.kp-erro__ajuda { padding-top: clamp(32px, 5vw, 64px); }
+.kp-erro__ajuda .kp-container { display: grid; gap: clamp(48px, 6vw, 72px); }
+.kp-erro__bloco > .kp-sobrelinha { margin-bottom: 18px; }
+.kp-erro__busca { display: block; width: 100%; max-width: 620px; }
+.kp-erro__busca input { height: 58px; padding-right: 22px; font-size: 1.05rem; }
+@media (max-width: 900px) {
+  .kp-erro__grade { grid-template-columns: 1fr; }
+  .kp-erro__numero { order: -1; justify-content: flex-start; font-size: clamp(6rem, 36vw, 11rem); }
+}
+@media (prefers-reduced-motion: reduce) { .kp-erro__capotado { animation: none; } }
