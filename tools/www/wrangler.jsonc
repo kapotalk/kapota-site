@@ -1,0 +1,9 @@
+// Redireciona www.kapota.com.br pro domínio principal. Deploy à mão (raramente muda):
+//   cd tools/www && npx wrangler@4 deploy
+{
+  "name": "kapota-www",
+  "main": "index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "routes": [{ "pattern": "www.kapota.com.br/*", "zone_name": "kapota.com.br" }]
+}

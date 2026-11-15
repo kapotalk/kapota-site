@@ -1,0 +1,18 @@
+// Site kapota.com.br na Cloudflare (Worker só com arquivos estáticos), no ar desde 15/11/2026.
+// Os arquivos são o próprio repositório; .assetsignore tira o que não é do site.
+// URLs iguais às do GitHub Pages: /blog/<slug>/ abre o index.html da pasta.
+// www.kapota.com.br é outro Worker (tools/www), que redireciona pra cá.
+// Rota (não custom domain): os registros A do domínio ficam com a nuvem laranja (proxied) e o Worker
+// responde antes de qualquer origem. Assim a troca do GitHub pra Cloudflare foi sem queda.
+{
+  "name": "kapota-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "routes": [{ "pattern": "kapota.com.br/*", "zone_name": "kapota.com.br" }],
+  "workers_dev": false,
+  "preview_urls": false
+}
