@@ -1,0 +1,52 @@
+# Publica kapota.com.br (Worker kapota-site) a cada push na main. Também roda quando a Action
+# "Atualizar site" termina, porque o commit que ela faz (sitemap, listagens) não dispara workflow
+# sozinho. Sempre publica a main mais nova. Sem o CLOUDFLARE_API_TOKEN, ou rodando à mão com
+# "ensaio", só valida a configuração, sem enviar nada.
+name: Publicar o site
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["Atualizar site (sitemap + listagens)"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      ensaio:
+        description: "Só ensaio (não publica)"
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: publicar-site
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Decidir se publica ou só ensaia
+        id: modo
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::warning::Falta o segredo CLOUDFLARE_API_TOKEN (ou CLOUDFLARE_ACCOUNT_ID). Só ensaio, nada foi publicado."
+            echo "publica=nao" >> "$GITHUB_OUTPUT"
+          elif [ "${{ inputs.ensaio }}" = "true" ]; then
+            echo "publica=nao" >> "$GITHUB_OUTPUT"
+          else
+            echo "publica=sim" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Ensaio (valida, sem enviar)
+        if: steps.modo.outputs.publica == 'nao'
+        run: npx -y wrangler@4 deploy --dry-run --outdir /tmp/ensaio-site
+      - name: Publicar
+        if: steps.modo.outputs.publica == 'sim'
+        run: npx -y wrangler@4 deploy

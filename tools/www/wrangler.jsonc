@@ -1,4 +1,5 @@
-// Redireciona www.kapota.com.br pro domínio principal. Deploy à mão (raramente muda):
+// Redireciona www.kapota.com.br pro domínio principal. Push na main que mexe aqui publica sozinho
+// (workflow publicar-www.yml, desde 18/11/2026). À mão:
 //   cd tools/www && npx wrangler@4 deploy
 {
   "name": "kapota-www",
